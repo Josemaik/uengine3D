@@ -31,6 +31,15 @@
     <Filter Include="glad">
       <UniqueIdentifier>{bd1b1a2e-a969-40f0-a07f-e89667ec4a93}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\src\managers">
+      <UniqueIdentifier>{eab6be06-ae73-4369-b631-5d658692ab41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\renderer\components">
+      <UniqueIdentifier>{08521664-d13a-4a39-94f4-59f3319db6a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\renderer\resources">
+      <UniqueIdentifier>{cd7ff7bf-2364-48d7-bf58-369bb2678fc6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\glfw\glfw3.h">
@@ -42,20 +51,38 @@
     <ClInclude Include="..\lib\glew\GL\glew.h">
       <Filter>glew</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\renderer\Buffer.h">
-      <Filter>Source Files\src\renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\renderer\Shader.h">
-      <Filter>Source Files\src\renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\renderer\Vertex.h">
-      <Filter>Source Files\src\renderer</Filter>
-    </ClInclude>
     <ClInclude Include="..\lib\glad\GL\glad.h">
       <Filter>glad</Filter>
     </ClInclude>
     <ClInclude Include="..\lib\glad\KHR\khrplatform.h">
       <Filter>glad</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\managers\GameEngine.hpp">
+      <Filter>Source Files\src\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\renderer\resources\Buffer.h">
+      <Filter>Source Files\src\renderer\resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\renderer\resources\Mesh.hpp">
+      <Filter>Source Files\src\renderer\resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\renderer\resources\Shader.h">
+      <Filter>Source Files\src\renderer\resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\renderer\resources\State.hpp">
+      <Filter>Source Files\src\renderer\resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\renderer\resources\Vertex.h">
+      <Filter>Source Files\src\renderer\resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\renderer\components\Entity.hpp">
+      <Filter>Source Files\src\renderer\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\renderer\components\Model.hpp">
+      <Filter>Source Files\src\renderer\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\renderer\components\Camera.hpp">
+      <Filter>Source Files\src\renderer\components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -65,17 +92,32 @@
     <ClCompile Include="..\src\main.cpp">
       <Filter>Source Files\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\renderer\Buffer.cpp">
-      <Filter>Source Files\src\renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\renderer\Shader.cpp">
-      <Filter>Source Files\src\renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\renderer\Vertex.cpp">
-      <Filter>Source Files\src\renderer</Filter>
-    </ClCompile>
     <ClCompile Include="..\lib\glad\glad.c">
       <Filter>glad</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\managers\GameEngine.cpp">
+      <Filter>Source Files\src\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\renderer\resources\Buffer.cpp">
+      <Filter>Source Files\src\renderer\resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\renderer\resources\Mesh.cpp">
+      <Filter>Source Files\src\renderer\resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\renderer\resources\Shader.cpp">
+      <Filter>Source Files\src\renderer\resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\renderer\resources\Vertex.cpp">
+      <Filter>Source Files\src\renderer\resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\renderer\components\Entity.cpp">
+      <Filter>Source Files\src\renderer\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\renderer\components\Model.cpp">
+      <Filter>Source Files\src\renderer\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\renderer\components\Camera.cpp">
+      <Filter>Source Files\src\renderer\components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

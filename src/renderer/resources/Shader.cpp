@@ -2,7 +2,57 @@
 #include "Vertex.h"
 
 #include <iostream>
+//strings
+#include <sstream>
+#include <fstream>
+#include <string>
 using namespace std;
+
+static std::string readString(const std::string& filename) {
+  std::ifstream istream(filename.c_str(), std::ios_base::binary);
+  std::stringstream sstream;
+  sstream << istream.rdbuf();
+  return sstream.str();
+}
+
+Shader::Shader(const char* _vertex_shader, const char* _fragment_shader)
+{
+  //Create Shaders
+  vertexShader = glCreateShader(GL_VERTEX_SHADER);
+  fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+  //Bindear
+  std::string vertexShaderString = readString(std::string(_vertex_shader));
+  const char* vertexShaderSource = vertexShaderString.c_str();
+  glShaderSource(vertexShader, 1, &vertexShaderSource, nullptr);
+
+  std::string fragmentShaderString = readString(std::string(_fragment_shader));
+  const char* fragmentShaderSource = fragmentShaderString.c_str();
+  glShaderSource(fragmentShader, 1, &fragmentShaderSource, nullptr);
+
+  //Compile
+  glCompileShader(vertexShader);
+  glCompileShader(fragmentShader);
+
+  int succes;
+  char errorLog[512]{};
+  glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &succes);
+  if (!succes) {
+    char errorLog[1024];
+    glGetShaderInfoLog(vertexShader, sizeof(errorLog), nullptr, errorLog);
+    glDeleteShader(vertexShader);
+    std::cout << errorLog;
+  }
+  glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &succes);
+  if (!succes) {
+    char errorLog[1024];
+    glGetShaderInfoLog(fragmentShader, sizeof(errorLog), nullptr, errorLog);
+    glDeleteShader(fragmentShader);
+    std::cout << errorLog;
+  }
+
+  //Create Program
+  idProgram = glCreateProgram();
+}
 
 uint32_t Shader::getID() const
 {
@@ -109,3 +159,5 @@ void Shader::setMatrix(int loc, const glm::mat4& matrix)
   if (loc != -1)
     glUniformMatrix4fv(loc, 1, GL_FALSE, &matrix[0][0]);
 }
+
+
