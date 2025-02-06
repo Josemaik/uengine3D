@@ -22,6 +22,15 @@
     <Filter Include="Shaders">
       <UniqueIdentifier>{0628083b-a31c-4825-822c-11b6f933e7bd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\src">
+      <UniqueIdentifier>{03a63878-6379-4927-a360-bcd2132c08ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\renderer">
+      <UniqueIdentifier>{4cefd204-aa28-4739-a43c-648e99801fe0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="glad">
+      <UniqueIdentifier>{bd1b1a2e-a969-40f0-a07f-e89667ec4a93}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\glfw\glfw3.h">
@@ -33,31 +42,40 @@
     <ClInclude Include="..\lib\glew\GL\glew.h">
       <Filter>glew</Filter>
     </ClInclude>
-    <ClInclude Include="Vertex.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\src\renderer\Buffer.h">
+      <Filter>Source Files\src\renderer</Filter>
     </ClInclude>
-    <ClInclude Include="Shader.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\src\renderer\Shader.h">
+      <Filter>Source Files\src\renderer</Filter>
     </ClInclude>
-    <ClInclude Include="Buffer.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\src\renderer\Vertex.h">
+      <Filter>Source Files\src\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\glad\GL\glad.h">
+      <Filter>glad</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\glad\KHR\khrplatform.h">
+      <Filter>glad</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\lib\glew\glew.c">
       <Filter>glew</Filter>
     </ClCompile>
-    <ClCompile Include="Vertex.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\src\main.cpp">
+      <Filter>Source Files\src</Filter>
     </ClCompile>
-    <ClCompile Include="Shader.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\src\renderer\Buffer.cpp">
+      <Filter>Source Files\src\renderer</Filter>
     </ClCompile>
-    <ClCompile Include="Buffer.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\src\renderer\Shader.cpp">
+      <Filter>Source Files\src\renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\renderer\Vertex.cpp">
+      <Filter>Source Files\src\renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\glad\glad.c">
+      <Filter>glad</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

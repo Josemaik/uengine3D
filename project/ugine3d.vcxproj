@@ -73,30 +73,32 @@
   <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <WarningLevel>Level4</WarningLevel>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../lib/glew</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../lib/glew;../lib/glad</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>../lib/glfw</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../lib/glfw;../lib/glad</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3.win32.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/NODEFAULTLIB:MSVCRT  msvcrtd.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <WarningLevel>Level4</WarningLevel>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../lib/glew</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../lib/glew;../lib/glad</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>../lib/glfw</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../lib/glfw;../lib/glad</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3.win64.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/NODEFAULTLIB:MSVCRT  msvcrtd.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -136,19 +138,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\lib\glad\GL\glad.h" />
+    <ClInclude Include="..\lib\glad\KHR\khrplatform.h" />
     <ClInclude Include="..\lib\glew\GL\glew.h" />
     <ClInclude Include="..\lib\glfw\glfw3.h" />
     <ClInclude Include="..\lib\glfw\glfw3native.h" />
-    <ClInclude Include="Buffer.h" />
-    <ClInclude Include="Shader.h" />
-    <ClInclude Include="Vertex.h" />
+    <ClInclude Include="..\src\renderer\Buffer.h" />
+    <ClInclude Include="..\src\renderer\Shader.h" />
+    <ClInclude Include="..\src\renderer\Vertex.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\lib\glad\glad.c" />
     <ClCompile Include="..\lib\glew\glew.c" />
     <ClCompile Include="..\src\main.cpp" />
-    <ClCompile Include="Buffer.cpp" />
-    <ClCompile Include="Shader.cpp" />
-    <ClCompile Include="Vertex.cpp" />
+    <ClCompile Include="..\src\renderer\Buffer.cpp" />
+    <ClCompile Include="..\src\renderer\Shader.cpp" />
+    <ClCompile Include="..\src\renderer\Vertex.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\data\fragment.glsl" />
