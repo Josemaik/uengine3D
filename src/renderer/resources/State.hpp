@@ -6,8 +6,9 @@
 
 struct State
 {
-	static std::shared_ptr<Shader> defaultShader;
-	static glm::mat4 projectionMatrix;
-	static glm::mat4 viewMatrix;
-	static glm::mat4 modelMatrix;
+public:
+	static inline std::shared_ptr<Shader> defaultShader = nullptr;
+	static inline glm::mat4 projectionMatrix = glm::mat4(1.f);
+	static inline glm::mat4 viewMatrix = glm::mat4(1.f);
+	static inline glm::mat4 modelMatrix = glm::mat4(1.f);
 };

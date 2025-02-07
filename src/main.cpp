@@ -13,10 +13,10 @@
 
 
 //opengl, glfw, renderer
-#include "../managers/GameEngine.hpp"
-#include "../renderer/resources/Shader.h"
-#include "../renderer/resources/Vertex.h"
-#include "../renderer/resources/Buffer.h"
+#include "managers/GameEngine.hpp"
+#include "renderer/resources/Shader.h"
+#include "renderer/resources/Vertex.h"
+#include "renderer/resources/Buffer.h"
 //#include "../glfw/glfw3.h"
 #include "../glm/gtc/type_ptr.hpp"
 #include "../glm/gtc/matrix_transform.hpp"
@@ -63,7 +63,7 @@ int main() {
 	double lastTime = engine.GetTime();
 	while (!engine.windowShouldClose() && !engine.IsScapeDown()) {
 		// get delta time
-		//float deltaTime = static_cast<float>(engine.GetTime() - lastTime);
+		float deltaTime = static_cast<float>(engine.GetTime() - lastTime);
 		lastTime = engine.GetTime();
 
 		//Begin Frame

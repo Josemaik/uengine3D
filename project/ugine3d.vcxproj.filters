@@ -40,6 +40,15 @@
     <Filter Include="Source Files\src\renderer\resources">
       <UniqueIdentifier>{cd7ff7bf-2364-48d7-bf58-369bb2678fc6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\src\ECS">
+      <UniqueIdentifier>{058ee404-be8c-4d7f-879b-eda1c6c64e0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\ECS\components">
+      <UniqueIdentifier>{3b4c4c7c-718f-4296-ae5b-d22e7730db99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\ECS\systems">
+      <UniqueIdentifier>{fd70842b-1d58-4593-acf0-15fb034980f0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\glfw\glfw3.h">
