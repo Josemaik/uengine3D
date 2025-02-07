@@ -145,10 +145,17 @@
     <ClInclude Include="..\lib\glew\GL\glew.h" />
     <ClInclude Include="..\lib\glfw\glfw3.h" />
     <ClInclude Include="..\lib\glfw\glfw3native.h" />
+    <ClInclude Include="..\src\ECS\components\RenderComponent.hpp" />
+    <ClInclude Include="..\src\ECS\Entitymanager.hpp" />
+    <ClInclude Include="..\src\ECS\meta_program.hpp" />
+    <ClInclude Include="..\src\ECS\systems\RenderSystem.hpp" />
+    <ClInclude Include="..\src\ECS\types.hpp" />
     <ClInclude Include="..\src\managers\GameEngine.hpp" />
     <ClInclude Include="..\src\renderer\components\Camera.hpp" />
     <ClInclude Include="..\src\renderer\components\Entity.hpp" />
     <ClInclude Include="..\src\renderer\components\Model.hpp" />
+    <ClInclude Include="..\src\renderer\managers\RenderManager.hpp" />
+    <ClInclude Include="..\src\renderer\managers\WindowsManager.hpp" />
     <ClInclude Include="..\src\renderer\resources\Buffer.h" />
     <ClInclude Include="..\src\renderer\resources\Mesh.hpp" />
     <ClInclude Include="..\src\renderer\resources\Shader.h" />
@@ -158,11 +165,14 @@
   <ItemGroup>
     <ClCompile Include="..\lib\glad\glad.c" />
     <ClCompile Include="..\lib\glew\glew.c" />
+    <ClCompile Include="..\src\ECS\systems\RenderSystem.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\managers\GameEngine.cpp" />
     <ClCompile Include="..\src\renderer\components\Camera.cpp" />
     <ClCompile Include="..\src\renderer\components\Entity.cpp" />
     <ClCompile Include="..\src\renderer\components\Model.cpp" />
+    <ClCompile Include="..\src\renderer\managers\RenderManager.cpp" />
+    <ClCompile Include="..\src\renderer\managers\WindowsManager.cpp" />
     <ClCompile Include="..\src\renderer\resources\Buffer.cpp" />
     <ClCompile Include="..\src\renderer\resources\Mesh.cpp" />
     <ClCompile Include="..\src\renderer\resources\Shader.cpp" />

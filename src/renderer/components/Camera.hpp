@@ -8,7 +8,7 @@ class Camera : public Entity
 	Camera(glm::vec3 _position, glm::vec3 _origin, glm::vec3 _up):
 		position(_position),origin(_origin),up(_up)
 	{}
-	~Camera() {}
+	~Camera() noexcept{ printf("Camera destroyed\n"); }
 
 	const glm::mat4& getProjection() const;
 	void setProjection(const glm::mat4& proj);

@@ -4,31 +4,12 @@
 ENGI::GameEngine::GameEngine(int const _width, int const _height)
 	:width(_width),height(_height)
 {
-	// init glfw
-	if (!glfwInit()) {
-		std::cout << "could not initialize glfw" << std::endl;
-	}
-
-	glfwWindowHint(GLFW_RESIZABLE, false);
-	glfwWindowHint(GLFW_SAMPLES, 8);
-
-	//create window
-
-	window = glfwCreateWindow(width, height, "Rotating Rectangles", nullptr, nullptr);
-	if (!window) {
-		std::cout << "could not create opengl window" << std::endl;
-		glfwTerminate();
-	}
-	glfwMakeContextCurrent(window);
-
-	//Init glew
-	if (glewInit())
+	if (InitWindow(_width,_height,"JsMEngine"))
 	{
-		glEnable(GL_DEPTH_TEST);
-		glEnable(GL_SCISSOR_TEST);
-		std::cout << "GLEW initialized!" << std::endl;
+		std::cout << "Window Initialized succesfully\n";
+		//Inicializar input
+		//pointer
 	}
-	glBlendFunc(GL_DEPTH_TEST, GL_SCISSOR_TEST);
 }
 
 double ENGI::GameEngine::GetTime() const
@@ -36,20 +17,24 @@ double ENGI::GameEngine::GetTime() const
 	return glfwGetTime();
 }
 
+bool ENGI::GameEngine::InitWindow(int width, int height, const char* title)
+{
+	return m_windowsManager.InitWindow(width, height, title);
+}
+
 bool ENGI::GameEngine::windowShouldClose() const
 {
-	return glfwWindowShouldClose(window);
+	return m_windowsManager.windowShouldClose();
 }
 
 GLFWwindow* ENGI::GameEngine::GetWindow() const
 {
-	if(window)
-		return window;
+	return m_windowsManager.getWindow();
 }
 
 void ENGI::GameEngine::CloseWindow() const
 {
-	glfwTerminate();
+	m_windowsManager.closeWindow();
 }
 
 void ENGI::GameEngine::UpdateViewport() const
@@ -60,19 +45,15 @@ void ENGI::GameEngine::UpdateViewport() const
 
 bool ENGI::GameEngine::IsScapeDown() const
 {
-	return glfwGetKey(window, GLFW_KEY_ESCAPE);
+	return glfwGetKey(GetWindow(), GLFW_KEY_ESCAPE);
 }
 
 void ENGI::GameEngine::beginFrame()
 {
-	//clear backfround
-	glClearColor(0.f, 0.0f, 0.0f, 1.0f);  // black
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	m_windowsManager.beginDrawing();
 }
 
 void ENGI::GameEngine::EndFrame()
 {
-	// refresh screen
-	glfwSwapBuffers(window);
-	glfwPollEvents();
+	m_windowsManager.endDrawing();
 }

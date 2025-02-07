@@ -49,6 +49,9 @@
     <Filter Include="Source Files\src\ECS\systems">
       <UniqueIdentifier>{fd70842b-1d58-4593-acf0-15fb034980f0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\src\renderer\managers">
+      <UniqueIdentifier>{b9252713-0318-4056-a7e2-9dda1e1cc94a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\glfw\glfw3.h">
@@ -93,6 +96,27 @@
     <ClInclude Include="..\src\renderer\components\Camera.hpp">
       <Filter>Source Files\src\renderer\components</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\ECS\Entitymanager.hpp">
+      <Filter>Source Files\src\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ECS\meta_program.hpp">
+      <Filter>Source Files\src\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ECS\types.hpp">
+      <Filter>Source Files\src\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ECS\components\RenderComponent.hpp">
+      <Filter>Source Files\src\ECS\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ECS\systems\RenderSystem.hpp">
+      <Filter>Source Files\src\ECS\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\renderer\managers\RenderManager.hpp">
+      <Filter>Source Files\src\renderer\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\renderer\managers\WindowsManager.hpp">
+      <Filter>Source Files\src\renderer\managers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\lib\glew\glew.c">
@@ -127,6 +151,15 @@
     </ClCompile>
     <ClCompile Include="..\src\renderer\components\Camera.cpp">
       <Filter>Source Files\src\renderer\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ECS\systems\RenderSystem.cpp">
+      <Filter>Source Files\src\ECS\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\renderer\managers\RenderManager.cpp">
+      <Filter>Source Files\src\renderer\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\renderer\managers\WindowsManager.cpp">
+      <Filter>Source Files\src\renderer\managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

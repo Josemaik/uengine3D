@@ -3,8 +3,9 @@
 #ifndef GAME_ENGINE
 #define GAME_ENGINE
 
-#include <GL/glew.h>
-#include "../glfw/glfw3.h"
+#include "../renderer/managers/WindowsManager.hpp"
+
+//#include "../renderer/components/Camera.hpp"
 
 namespace ENGI
 {
@@ -13,11 +14,15 @@ namespace ENGI
 		//using u16 = std::uint16_t;
 	public:
 		GameEngine(int const width, int const height);
-
+		/*~GameEngine()
+		{
+			delete camera;
+		}*/
 		//Time
 		double GetTime() const;
 
 		//Window
+		bool InitWindow(int width, int height, const char* title);
 		bool windowShouldClose() const;
 		GLFWwindow* GetWindow() const;
 		void CloseWindow() const;
@@ -66,11 +71,11 @@ namespace ENGI
 		//const vec2f& getCameraPosition() const;
 		//void setCameraPosition(const vec2f& pos);
 		//void UpdateCamera(const vec2f& screenSize, const vec2f& levelSize, const vec2f& targetSprite);
-	private:
-		//window
-		GLFWwindow* window{ nullptr };
-		int width{ 0 }, height{ 0 };
+	//public:
 		////camera
+		//SCamera* camera{};
+	private:
+		int width{}, height{};
 		//vec2f cameraPos{};
 		////Clear Colors
 		//float clearRed, clearGreen, clearBlue;
@@ -78,7 +83,7 @@ namespace ENGI
 		//InputManager& m_inputManager = InputManager::getInstance();
 		//TextureManager& m_textureManager = TextureManager::getInstance();
 		//FontManager& m_fontManager = FontManager::getInstance();
-
+		WindowsManager& m_windowsManager = WindowsManager::getInstance();
 	};
 #endif // !GAME_ENGINE
 }
