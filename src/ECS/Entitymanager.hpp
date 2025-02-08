@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../utils/meta_program.hpp"
+#include "meta_program.hpp"
 #include <cassert>
 #include <array>
 #include <vector>

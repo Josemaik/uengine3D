@@ -17,6 +17,8 @@
 #include "renderer/resources/Shader.h"
 #include "renderer/resources/Vertex.h"
 #include "renderer/resources/Buffer.h"
+//#include "renderer/resources/State.hpp"
+#include "ECS/types.hpp"
 //#include "../glfw/glfw3.h"
 #include "../glm/gtc/type_ptr.hpp"
 #include "../glm/gtc/matrix_transform.hpp"
@@ -36,6 +38,8 @@
 int main() {
 	//Inicializamos Engine
 	ENGI::GameEngine engine(SCREEN_WIDTH, SCREEN_HEIGHT);
+	//Inicializamos ECS
+	EntityManager em{};
 
 	//Creamos Buffer
 	std::vector<Vertex> vertices =
@@ -53,8 +57,8 @@ int main() {
 	shader.AttachandLink();
 
 
-	//update viewport
-	engine.UpdateViewport();
+	////update viewport
+	//engine.UpdateViewport();
 
 	//Use Program
 	shader.use();
@@ -68,15 +72,17 @@ int main() {
 
 		//Begin Frame
 		engine.beginFrame();
+		//update viewport
+		//engine.UpdateViewport();
 
 		//Draw Triangles
 		//View and Project Matrix
-		glm::mat4 view = glm::lookAt(
-			glm::vec3(0.0f, 0.0f, 6.0f), //camera pos
-			glm::vec3(0.0f, 0.0f, 0.0f), //origen escena
-			glm::vec3(0.0f, 1.0f, 0.0f)); //world direction
+		//glm::mat4 view = glm::lookAt(
+		//	glm::vec3(0.0f, 0.0f, 6.0f), //camera pos
+		//	glm::vec3(0.0f, 0.0f, 0.0f), //origen escena
+		//	glm::vec3(0.0f, 1.0f, 0.0f)); //world direction
 
-		glm::mat4 proj = glm::perspective(45.0f, 800.0f / 600.0f, 0.1f, 100.0f);
+		//glm::mat4 proj = glm::perspective(45.0f, 800.0f / 600.0f, 0.1f, 100.0f);
 
 		for (int row = 0; row < 3; row++)
 		{
@@ -94,7 +100,8 @@ int main() {
 
 				model = model * glm::mat4_cast(rotation);	//Rotate and Translate
 
-				glm::mat4 mvp = proj * view * model;
+				//glm::mat4 mvp = proj * view * model;
+				glm::mat4 mvp = State::projectionMatrix * State::viewMatrix * model;
 				GLint uniMVP = glGetUniformLocation(shader.getID(), "mvp");
 				shader.setMatrix(uniMVP, mvp);
 				

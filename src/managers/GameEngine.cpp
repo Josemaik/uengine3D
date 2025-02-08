@@ -1,5 +1,6 @@
 #include "GameEngine.hpp"
 #include <iostream>
+#include <gtc/matrix_transform.hpp>
 
 ENGI::GameEngine::GameEngine(int const _width, int const _height)
 	:width(_width),height(_height)
@@ -9,6 +10,13 @@ ENGI::GameEngine::GameEngine(int const _width, int const _height)
 		std::cout << "Window Initialized succesfully\n";
 		//Inicializar input
 		//pointer
+		//Initialize Camera
+		auto camera = m_renderManager.CreateCamera(glm::vec3(0.0f, 0.0f, 6.0f),
+																 glm::vec3(0.0f, 0.0f, 0.0f),
+																 glm::vec3(0.0f, 1.0f, 0.0f));
+		camera->setClearColor(glm::vec3(0.f, 0.f, 0.f));
+		camera->setProjection(glm::perspective(45.0f, 800.0f / 600.0f, 0.1f, 100.0f));
+		camera->setViewport(glm::ivec4(0, 0, width, height));
 	}
 }
 
@@ -50,7 +58,8 @@ bool ENGI::GameEngine::IsScapeDown() const
 
 void ENGI::GameEngine::beginFrame()
 {
-	m_windowsManager.beginDrawing();
+	//m_windowsManager.beginDrawing();
+	m_renderManager.drawCamera();
 }
 
 void ENGI::GameEngine::EndFrame()

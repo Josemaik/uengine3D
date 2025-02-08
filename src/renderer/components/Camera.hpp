@@ -3,8 +3,9 @@
 #include "Entity.hpp"
 #include "../glm/mat4x4.hpp"
 
-class Camera : public Entity
+class Camera : public Renderer::Entity
 {
+public:
 	Camera(glm::vec3 _position, glm::vec3 _origin, glm::vec3 _up):
 		position(_position),origin(_origin),up(_up)
 	{}
@@ -16,8 +17,8 @@ class Camera : public Entity
 	void setViewport(const glm::ivec4& vp);
 	const glm::vec3& getClearColor() const;
 	void setClearColor(const glm::vec3& color);
+	void draw() override;
 	void prepare();
-
 
 private:
 	// Camera Attributes

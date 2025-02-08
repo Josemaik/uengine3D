@@ -79,7 +79,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glad;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glm;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glfw;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glew</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>../lib/glfw;../lib/glew;../lib/glad</AdditionalLibraryDirectories>
@@ -95,7 +95,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glad;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glm;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glfw;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glew</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>../lib/glfw;../lib/glew;../lib/glad</AdditionalLibraryDirectories>

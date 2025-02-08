@@ -4,7 +4,7 @@
 #include "../resources/Mesh.hpp"
 #include <memory>
 
-class Model : public Entity
+class Model : public Renderer::Entity
 {
 public:
 	Model(const std::shared_ptr<Mesh>& _mesh) :

@@ -4,8 +4,8 @@
 #define GAME_ENGINE
 
 #include "../renderer/managers/WindowsManager.hpp"
+#include "../renderer/managers/RenderManager.hpp"
 
-//#include "../renderer/components/Camera.hpp"
 
 namespace ENGI
 {
@@ -84,6 +84,7 @@ namespace ENGI
 		//TextureManager& m_textureManager = TextureManager::getInstance();
 		//FontManager& m_fontManager = FontManager::getInstance();
 		WindowsManager& m_windowsManager = WindowsManager::getInstance();
+		RenderManager& m_renderManager = RenderManager::getInstance();
 	};
 #endif // !GAME_ENGINE
 }

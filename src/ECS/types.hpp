@@ -3,6 +3,7 @@
 //Componentes
 #include "components/RenderComponent.hpp"
 //Singletons
+#include "../renderer/resources/State.hpp"
 //#include "sngtn/GameData.hpp"
 //#include "sngtn/PlayerInfo.hpp"
 //Entity Manager
@@ -29,7 +30,7 @@ using TL = MP::TypeList <
 >;
 //SINGLETONS
 using SCL = MP::TypeList <
-
+	State
 >;
 
 using EntityManager = ETMG::EntityManager<CL,TL,SCL>;
