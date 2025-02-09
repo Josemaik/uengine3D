@@ -21,10 +21,10 @@ struct cmp_traits : tag_traits<CMPS> {};
 
 namespace ETMG
 {
-	template<typename CMPList,typename TAGList, typename SNGLIst>//typename SNGLIst
+	template<typename CMPList, typename TAGList, typename SNGLIst>//typename SNGLIst
 	struct EntityManager
 	{
-		static constexpr std::size_t MAX_ENTITIES{ 6 }; //máximo de entidades vivas
+		static constexpr std::size_t MAX_ENTITIES{ 10 }; //máximo de entidades vivas
 
 		inline static std::size_t nextID{ 0 }; // ID de la siguiente entidad que se crea
 
@@ -43,9 +43,9 @@ namespace ETMG
 
 		struct Entity
 		{
-		friend struct EntityManager<CMPList,TAGList,SNGLIst>; // SNGLIst
+			friend struct EntityManager<CMPList, TAGList, SNGLIst>; // SNGLIst
 
-		Entity() { id_ = nextID++; printf("Creo Entidad\n"); }
+			Entity() { id_ = nextID++; printf("Creo Entidad\n"); }
 		public:
 			// Asigna un nuevo ID a la entidad
 			void setID(std::size_t const id) noexcept { this->id_ = id; }
@@ -107,7 +107,7 @@ namespace ETMG
 		//Métodos manager de Entidades
 		// 
 		// Crear una nueva entidad y devolver la referencia
-		Entity& createEntity() noexcept{
+		Entity& createEntity() noexcept {
 			assert(aliveCount < MAX_ENTITIES && "Límite de entidades vivas alcanzado");
 			size_t newid;
 			bool reused{ false };
@@ -161,16 +161,14 @@ namespace ETMG
 			//static_assert(cmp_info::template contains<CMP>(), "Componente no válido");
 			//Obtenemos el id
 			/*const auto componentID = cmp_info::template id<CMP>();*/
-			
+
 			//Actualizamos la máscara
 			entity.template addComponent<CMP>();
 
 			// Asegurar almacenamiento del componente
 			auto& storage = std::get<ComponentStorage<CMP>>(componentPools_);
 
-			if (storage.size() <= entity.id_) storage.resize(entity.id_ + 1);
-			//if (storage.size() <= entity.id_) storage.resize(storage.size() + 1);
-			//else storage.resize(storage.size() + entity.id_ + 1);
+			//if (storage.size() <= entity.id_) storage.resize(entity.id_ + 1);->antiguo
 
 			//Devuelvo referencia al componente ya creado
 			storage[entity.id_] = CMP(std::forward<Args>(args)...);
@@ -199,13 +197,13 @@ namespace ETMG
 		template<typename T = Entity>
 		auto getEntities() -> std::span<std::conditional_t<std::is_const_v<T>, const Entity, Entity>>
 		{
-			return std::span{ entities_.begin(), entities_.end()};
+			return std::span{ entities_.begin(), entities_.end() };
 		}
 		/*auto getEntities()
 		{
 			return liveEntities;
 		}*/
-
+		//Plantilla que nos devuelve una entidad dado una tag
 		template<typename TAG>
 		Entity* getEntitywithTag()
 		{
@@ -220,10 +218,10 @@ namespace ETMG
 		}
 
 		// Plantilla para recorrer todas las entidades que tengan los componentes especificados
-		template <typename CMPs,typename TAGs>
-		void forEach(auto&& func) { forEachImpl(func, CMPs{},TAGs{}); }
+		template <typename CMPs, typename TAGs>
+		void forEach(auto&& func) { forEachImpl(func, CMPs{}, TAGs{}); }
 		// Iterar sobre entidades con un componente específico
-		template <typename... CMPs,typename... TAGs>
+		template <typename... CMPs, typename... TAGs>
 		void forEachImpl(auto&& func, MP::TypeList<CMPs...>, MP::TypeList<TAGs...>) {
 			//static_assert(cmp_info::template contains<CMP>(), "Componente no válido");
 			for (Entity& e : getEntities())
@@ -296,17 +294,11 @@ namespace ETMG
 		//Array de Entidades
 		std::array<Entity, MAX_ENTITIES> entities_{};
 
-		/////////////////////////////////////
-		// /////Cambiar por un MAp, cuando anade componente , se mete el componete asociado con id 
-		// de la entidad, luego en el erase se le quita el componente a esa entidad
-		// cuando se borre la entidad, erase de todos sus componentes
-		// //////////////////////////////////
-		// 
-		// 
-		// Almacenamiento para componentes -> tupla de vectores opcionales 
-		// ( std::tuple<std::vector<RenderComponent>, std::vector<PhysicasComponent>...>
+		// Almacenamiento para componentes -> tupla de arrays opcionales 
+		// ( std::tuple<std::array<RenderComponent>, std::array<PhysicasComponent>...>
 		template <typename CMP>
-		using ComponentStorage = std::vector<std::optional<CMP>>;
+		///using ComponentStorage = std::vector<std::optional<CMP>>;
+		using ComponentStorage = std::array<std::optional<CMP>, MAX_ENTITIES>;
 
 		template <typename CMPList>
 		struct ComponentPools;

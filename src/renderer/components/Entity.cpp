@@ -10,17 +10,17 @@ void Renderer::Entity::setPosition(const glm::vec3& pos)
   position = pos;
 }
 
-const glm::vec3& Renderer::Entity::getRotation() const
+const glm::quat& Renderer::Entity::getRotation() const
 {
   return rotation;
 }
 
-float Renderer:: Entity::getAngle() const
-{
-  return angle;
-}
+//float Renderer::Entity::getAngle() const
+//{
+//  return angle;
+//}
 
-const void Renderer::Entity::setRotation(const glm::vec3& rot)
+const void Renderer::Entity::setRotation(const glm::quat& rot)
 {
   rotation = rot;
 }

@@ -11,8 +11,10 @@ public:
 		mesh(_mesh)
 	{}
 
+	const std::shared_ptr<Mesh>& getMesh() const { return mesh; }
+
 	void draw() override;
 private:
-	const std::shared_ptr<Mesh>& mesh{};
+	const std::shared_ptr<Mesh>& mesh;
 };
 

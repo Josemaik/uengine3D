@@ -25,20 +25,11 @@
     <Filter Include="Source Files\src">
       <UniqueIdentifier>{03a63878-6379-4927-a360-bcd2132c08ff}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\src\renderer">
-      <UniqueIdentifier>{4cefd204-aa28-4739-a43c-648e99801fe0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="glad">
       <UniqueIdentifier>{bd1b1a2e-a969-40f0-a07f-e89667ec4a93}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\src\managers">
       <UniqueIdentifier>{eab6be06-ae73-4369-b631-5d658692ab41}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\src\renderer\components">
-      <UniqueIdentifier>{08521664-d13a-4a39-94f4-59f3319db6a8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\src\renderer\resources">
-      <UniqueIdentifier>{cd7ff7bf-2364-48d7-bf58-369bb2678fc6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\src\ECS">
       <UniqueIdentifier>{058ee404-be8c-4d7f-879b-eda1c6c64e0a}</UniqueIdentifier>
@@ -49,7 +40,16 @@
     <Filter Include="Source Files\src\ECS\systems">
       <UniqueIdentifier>{fd70842b-1d58-4593-acf0-15fb034980f0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\src\renderer\managers">
+    <Filter Include="Source Files\src\Renderer">
+      <UniqueIdentifier>{4cefd204-aa28-4739-a43c-648e99801fe0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\Renderer\components">
+      <UniqueIdentifier>{08521664-d13a-4a39-94f4-59f3319db6a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\Renderer\resources">
+      <UniqueIdentifier>{cd7ff7bf-2364-48d7-bf58-369bb2678fc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\Renderer\managers">
       <UniqueIdentifier>{b9252713-0318-4056-a7e2-9dda1e1cc94a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -73,28 +73,28 @@
       <Filter>Source Files\src\managers</Filter>
     </ClInclude>
     <ClInclude Include="..\src\renderer\resources\Buffer.h">
-      <Filter>Source Files\src\renderer\resources</Filter>
+      <Filter>Source Files\src\Renderer\resources</Filter>
     </ClInclude>
     <ClInclude Include="..\src\renderer\resources\Mesh.hpp">
-      <Filter>Source Files\src\renderer\resources</Filter>
+      <Filter>Source Files\src\Renderer\resources</Filter>
     </ClInclude>
     <ClInclude Include="..\src\renderer\resources\Shader.h">
-      <Filter>Source Files\src\renderer\resources</Filter>
+      <Filter>Source Files\src\Renderer\resources</Filter>
     </ClInclude>
     <ClInclude Include="..\src\renderer\resources\State.hpp">
-      <Filter>Source Files\src\renderer\resources</Filter>
+      <Filter>Source Files\src\Renderer\resources</Filter>
     </ClInclude>
     <ClInclude Include="..\src\renderer\resources\Vertex.h">
-      <Filter>Source Files\src\renderer\resources</Filter>
+      <Filter>Source Files\src\Renderer\resources</Filter>
     </ClInclude>
     <ClInclude Include="..\src\renderer\components\Entity.hpp">
-      <Filter>Source Files\src\renderer\components</Filter>
+      <Filter>Source Files\src\Renderer\components</Filter>
     </ClInclude>
     <ClInclude Include="..\src\renderer\components\Model.hpp">
-      <Filter>Source Files\src\renderer\components</Filter>
+      <Filter>Source Files\src\Renderer\components</Filter>
     </ClInclude>
     <ClInclude Include="..\src\renderer\components\Camera.hpp">
-      <Filter>Source Files\src\renderer\components</Filter>
+      <Filter>Source Files\src\Renderer\components</Filter>
     </ClInclude>
     <ClInclude Include="..\src\ECS\Entitymanager.hpp">
       <Filter>Source Files\src\ECS</Filter>
@@ -112,10 +112,10 @@
       <Filter>Source Files\src\ECS\systems</Filter>
     </ClInclude>
     <ClInclude Include="..\src\renderer\managers\RenderManager.hpp">
-      <Filter>Source Files\src\renderer\managers</Filter>
+      <Filter>Source Files\src\Renderer\managers</Filter>
     </ClInclude>
     <ClInclude Include="..\src\renderer\managers\WindowsManager.hpp">
-      <Filter>Source Files\src\renderer\managers</Filter>
+      <Filter>Source Files\src\Renderer\managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -132,34 +132,34 @@
       <Filter>Source Files\src\managers</Filter>
     </ClCompile>
     <ClCompile Include="..\src\renderer\resources\Buffer.cpp">
-      <Filter>Source Files\src\renderer\resources</Filter>
+      <Filter>Source Files\src\Renderer\resources</Filter>
     </ClCompile>
     <ClCompile Include="..\src\renderer\resources\Mesh.cpp">
-      <Filter>Source Files\src\renderer\resources</Filter>
+      <Filter>Source Files\src\Renderer\resources</Filter>
     </ClCompile>
     <ClCompile Include="..\src\renderer\resources\Shader.cpp">
-      <Filter>Source Files\src\renderer\resources</Filter>
+      <Filter>Source Files\src\Renderer\resources</Filter>
     </ClCompile>
     <ClCompile Include="..\src\renderer\resources\Vertex.cpp">
-      <Filter>Source Files\src\renderer\resources</Filter>
+      <Filter>Source Files\src\Renderer\resources</Filter>
     </ClCompile>
     <ClCompile Include="..\src\renderer\components\Entity.cpp">
-      <Filter>Source Files\src\renderer\components</Filter>
+      <Filter>Source Files\src\Renderer\components</Filter>
     </ClCompile>
     <ClCompile Include="..\src\renderer\components\Model.cpp">
-      <Filter>Source Files\src\renderer\components</Filter>
+      <Filter>Source Files\src\Renderer\components</Filter>
     </ClCompile>
     <ClCompile Include="..\src\renderer\components\Camera.cpp">
-      <Filter>Source Files\src\renderer\components</Filter>
+      <Filter>Source Files\src\Renderer\components</Filter>
     </ClCompile>
     <ClCompile Include="..\src\ECS\systems\RenderSystem.cpp">
       <Filter>Source Files\src\ECS\systems</Filter>
     </ClCompile>
     <ClCompile Include="..\src\renderer\managers\RenderManager.cpp">
-      <Filter>Source Files\src\renderer\managers</Filter>
+      <Filter>Source Files\src\Renderer\managers</Filter>
     </ClCompile>
     <ClCompile Include="..\src\renderer\managers\WindowsManager.cpp">
-      <Filter>Source Files\src\renderer\managers</Filter>
+      <Filter>Source Files\src\Renderer\managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
