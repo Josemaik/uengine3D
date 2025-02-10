@@ -73,7 +73,7 @@
   <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <WarningLevel>Level4</WarningLevel>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
@@ -89,7 +89,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <WarningLevel>Level4</WarningLevel>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
@@ -150,11 +150,13 @@
     <ClInclude Include="..\src\ECS\meta_program.hpp" />
     <ClInclude Include="..\src\ECS\systems\RenderSystem.hpp" />
     <ClInclude Include="..\src\ECS\types.hpp" />
+    <ClInclude Include="..\src\managers\EntityFactory.hpp" />
     <ClInclude Include="..\src\managers\GameEngine.hpp" />
     <ClInclude Include="..\src\renderer\components\Camera.hpp" />
     <ClInclude Include="..\src\renderer\components\Entity.hpp" />
     <ClInclude Include="..\src\renderer\components\Model.hpp" />
     <ClInclude Include="..\src\renderer\managers\RenderManager.hpp" />
+    <ClInclude Include="..\src\renderer\managers\ResourceManager.hpp" />
     <ClInclude Include="..\src\renderer\managers\WindowsManager.hpp" />
     <ClInclude Include="..\src\renderer\resources\Buffer.h" />
     <ClInclude Include="..\src\renderer\resources\Mesh.hpp" />
@@ -167,11 +169,13 @@
     <ClCompile Include="..\lib\glew\glew.c" />
     <ClCompile Include="..\src\ECS\systems\RenderSystem.cpp" />
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\managers\EntityFactory.cpp" />
     <ClCompile Include="..\src\managers\GameEngine.cpp" />
     <ClCompile Include="..\src\renderer\components\Camera.cpp" />
     <ClCompile Include="..\src\renderer\components\Entity.cpp" />
     <ClCompile Include="..\src\renderer\components\Model.cpp" />
     <ClCompile Include="..\src\renderer\managers\RenderManager.cpp" />
+    <ClCompile Include="..\src\renderer\managers\ResourceManager.cpp" />
     <ClCompile Include="..\src\renderer\managers\WindowsManager.cpp" />
     <ClCompile Include="..\src\renderer\resources\Buffer.cpp" />
     <ClCompile Include="..\src\renderer\resources\Mesh.cpp" />

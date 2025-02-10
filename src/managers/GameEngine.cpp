@@ -1,6 +1,7 @@
 #include "GameEngine.hpp"
 #include <iostream>
 #include <gtc/matrix_transform.hpp>
+#include <vector>
 
 ENGI::GameEngine::GameEngine(int const _width, int const _height)
 	:width(_width),height(_height)
@@ -17,14 +18,20 @@ ENGI::GameEngine::GameEngine(int const _width, int const _height)
 		camera->setClearColor(glm::vec3(0.f, 0.f, 0.f));
 		camera->setProjection(glm::perspective(45.0f, 800.0f / 600.0f, 0.1f, 100.0f));
 		camera->setViewport(glm::ivec4(0, 0, width, height));
+		//Initialize Shader
+		m_renderManager.LoadShader();
 	}
 }
 
+/////////////////
+//TIME
 double ENGI::GameEngine::GetTime() const
 {
 	return glfwGetTime();
 }
 
+//////////////
+///WINDOW
 bool ENGI::GameEngine::InitWindow(int width, int height, const char* title)
 {
 	return m_windowsManager.InitWindow(width, height, title);
@@ -45,24 +52,27 @@ void ENGI::GameEngine::CloseWindow() const
 	m_windowsManager.closeWindow();
 }
 
-void ENGI::GameEngine::UpdateViewport() const
+void ENGI::GameEngine::EndFrame()
 {
-	glViewport(0, 0, width, height);
-	glScissor(0, 0, width, height);
+	m_windowsManager.endDrawing();
 }
-
+/////////////
+//INPUT
 bool ENGI::GameEngine::IsScapeDown() const
 {
 	return glfwGetKey(GetWindow(), GLFW_KEY_ESCAPE);
 }
 
+/////////////
+///RENDERER
 void ENGI::GameEngine::beginFrame()
 {
-	//m_windowsManager.beginDrawing();
 	m_renderManager.drawCamera();
 }
 
-void ENGI::GameEngine::EndFrame()
+/////////////
+///RESOURCE
+std::shared_ptr<Mesh>& ENGI::GameEngine::LoadModel(std::vector<Vertex>& vertices, std::array<uint16_t, 3>& indices)
 {
-	m_windowsManager.endDrawing();
+	return m_resourceManager.loadResource<Mesh>(vertices, indices);
 }

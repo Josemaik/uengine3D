@@ -117,6 +117,12 @@
     <ClInclude Include="..\src\renderer\managers\WindowsManager.hpp">
       <Filter>Source Files\src\Renderer\managers</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\managers\EntityFactory.hpp">
+      <Filter>Source Files\src\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\renderer\managers\ResourceManager.hpp">
+      <Filter>Source Files\src\Renderer\managers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\lib\glew\glew.c">
@@ -159,6 +165,12 @@
       <Filter>Source Files\src\Renderer\managers</Filter>
     </ClCompile>
     <ClCompile Include="..\src\renderer\managers\WindowsManager.cpp">
+      <Filter>Source Files\src\Renderer\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\managers\EntityFactory.cpp">
+      <Filter>Source Files\src\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\renderer\managers\ResourceManager.cpp">
       <Filter>Source Files\src\Renderer\managers</Filter>
     </ClCompile>
   </ItemGroup>

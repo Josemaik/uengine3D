@@ -13,7 +13,7 @@
 #include "meta_program.hpp"
 
 //Fordward declaration
-namespace ENGI { struct GameEngine; }
+namespace ENGI { class GameEngine; }
 
 //declare TAGS
 //draw

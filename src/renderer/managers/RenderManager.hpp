@@ -17,6 +17,9 @@ public:
 	void setCamera(Camera* camera) { m_camera = camera; };
 	Camera* getCamera() const { return m_camera; }
 	void drawCamera() const { m_camera->draw(); }
+	//Shaders
+	void LoadShader();
+	//Meshes
 
 	static RenderManager& getInstance() {
 		static RenderManager instance;

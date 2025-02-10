@@ -12,12 +12,7 @@ void Model::draw()
 	glm::quat rotation = getRotation(); //glm::angleAxis(glm::radians(getAngle()), getRotation());
 
 	State::modelMatrix = translationMatrix * glm::mat4_cast(rotation); //* scaleMatrix;
-
-	//mvp
-	/*glm::mat4 mvp = State::projectionMatrix * State::viewMatrix * State::modelMatrix;
-	GLint uniMVP = glGetUniformLocation(State::defaultShader->getID(), "mvp");*/
 	
-
 	//LLamamos a dibujar la malla
 	if(mesh)
 		mesh->draw();

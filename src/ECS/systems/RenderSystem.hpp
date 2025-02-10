@@ -9,6 +9,6 @@ class RenderSystem
 
 public:
 	void update(EntityManager& em, float Deltatime);
-	void Init();
+	void LoadModels(EntityManager& em,GameEngine& ge);
 	void UnloadModels(EntityManager& em);
 };
