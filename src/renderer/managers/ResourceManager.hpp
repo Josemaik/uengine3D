@@ -5,16 +5,29 @@
 #include <vector>
 #include <array>
 #include "../resources/Mesh.hpp"
+#include "../resources/Material.hpp"
 
 class ResourceManager
 {
 public:
 	template<typename T>
-	std::shared_ptr<T>& loadResource(std::vector<Vertex>& vertices, std::array<uint16_t, 3>& indices)
+	std::shared_ptr<T>& loadResource(std::vector<const char*>& filepaths,std::vector<Vertex>& vertices, std::array<uint16_t, 3>& indices)
 	{
-		std::shared_ptr<Buffer> buffer = std::make_shared<Buffer>(vertices, indices);
+		//Mesh
 		std::shared_ptr<Mesh> mesh = std::make_shared<Mesh>();
-		mesh->addBuffer(buffer);
+		//Buffer
+		std::shared_ptr<Buffer> buffer = std::make_shared<Buffer>(vertices, indices);
+		//Materials
+		for(auto& path : filepaths)
+		{
+			std::shared_ptr<Material> mat = std::make_shared<Material>();
+			std::shared_ptr<Texture> tex= std::make_shared<Texture>();
+			if (tex->load(path))
+			{
+				mat->setTexture(tex);
+				mesh->addBuffer(buffer, *mat);
+			}
+		}
 
 		m_meshes[nextID] = mesh;
 

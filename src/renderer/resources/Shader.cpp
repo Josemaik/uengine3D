@@ -101,6 +101,8 @@ void Shader::setupAttribs() const
   //Vertex Shader
   GLint location_vpos = glGetAttribLocation(idProgram, "vpos");
   GLint location_vcolor = glGetAttribLocation(idProgram, "vcolor");
+  GLint location_vtex = glGetAttribLocation(idProgram, "vtex");
+
   if (location_vpos != -1)
   {
     //Activar escritura
@@ -116,6 +118,12 @@ void Shader::setupAttribs() const
     //Especificar formato
     glVertexAttribPointer(location_vcolor, 4, GL_FLOAT, false, sizeof(Vertex), reinterpret_cast<const
       void*>(offsetof(Vertex, color)));
+  }
+  if (location_vtex != -1)
+  {
+    glEnableVertexAttribArray(location_vtex);
+    glVertexAttribPointer(location_vtex, 2, GL_FLOAT, false, sizeof(Vertex),
+      reinterpret_cast<const void*>(offsetof(Vertex, textureCord)));
   }
   /*GLint location_mvp = glGetAttribLocation(idProgram, "mvp");
   if (location_mvp != -1)
@@ -159,5 +167,3 @@ void Shader::setMatrix(int loc, const glm::mat4& matrix)
   if (loc != -1)
     glUniformMatrix4fv(loc, 1, GL_FALSE, &matrix[0][0]);
 }
-
-

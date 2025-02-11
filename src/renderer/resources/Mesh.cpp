@@ -1,16 +1,16 @@
 #include "Mesh.hpp"
 #include "State.hpp"
 
-void Mesh::addBuffer(shared_buffer buffer, shared_shader shader)
+void Mesh::addBuffer(shared_buffer buffer, const Material& material)
 {
 	//Vec_Buffers.emplace_back(std::make_pair(buffer, shader));
 	if (buffer)
 	{
 		buffers.push_back(buffer);
-		printf("Buffer agregado. Total ahora: %d", getNumBuffers());
+		//printf("Buffer agregado. Total ahora: %d", getNumBuffers());
 	}
-	
-	shaders.push_back(shader ? shader : State::defaultShader);
+	materials.push_back(material);
+	//shaders.push_back(shader ? shader : State::defaultShader);
 }
 
 size_t Mesh::getNumBuffers() const
@@ -25,17 +25,28 @@ shared_buffer Mesh::getBuffer(size_t index) const
 	return buffers.at(index);
 }
 
+const Material& Mesh::getMaterial(size_t index) const
+{
+	return materials.at(index);
+}
+
+Material& Mesh::getMaterial(size_t index)
+{
+	return materials.at(index);
+}
+
 void Mesh::draw()
 {
 	//mvp
-	glm::mat4 mvp = State::projectionMatrix * State::viewMatrix * State::modelMatrix;
+	//glm::mat4 mvp = State::projectionMatrix * State::viewMatrix * State::modelMatrix;
 
 	for (size_t i = 0; i < buffers.size(); ++i) {
-		GLint uniMVP = glGetUniformLocation(shaders[i]->getID(), "mvp");
-		shaders[i]->setMatrix(uniMVP, mvp);
+		/*GLint uniMVP = glGetUniformLocation(shaders[i]->getID(), "mvp");
+		shaders[i]->setMatrix(uniMVP, mvp);*/
+		materials[i].prepare();
+		Shader& shader = *materials[i].getShader();
+		buffers[i]->draw(shader);
 
-		buffers[i]->draw(*shaders[i]);
-
-		shaders[i]->use();
+		shader.use();
 	}
 }

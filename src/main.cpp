@@ -33,6 +33,7 @@ int main() {
 	//Create Triangles
 	ef.CreateTriangles(em);
 
+	//Load Models
 	rsys.LoadModels(em, engine);
 	
 	// main loop

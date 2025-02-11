@@ -32,7 +32,7 @@ namespace ENGI
 		void beginFrame();
 		void EndFrame();
 		//Resource
-		std::shared_ptr<Mesh>& LoadModel(std::vector<Vertex>& vertices, std::array<uint16_t, 3>& indices);
+		std::shared_ptr<Mesh>& LoadModel(std::vector<const char*>& filepaths,std::vector<Vertex>& vertices, std::array<uint16_t, 3>& indices);
 
 	private:
 		int width{}, height{};

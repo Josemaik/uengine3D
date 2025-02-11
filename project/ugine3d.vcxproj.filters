@@ -52,6 +52,9 @@
     <Filter Include="Source Files\src\Renderer\managers">
       <UniqueIdentifier>{b9252713-0318-4056-a7e2-9dda1e1cc94a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="stbimage">
+      <UniqueIdentifier>{f86e073d-64d8-424e-b56d-90374522d119}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\glfw\glfw3.h">
@@ -123,6 +126,15 @@
     <ClInclude Include="..\src\renderer\managers\ResourceManager.hpp">
       <Filter>Source Files\src\Renderer\managers</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\renderer\resources\Material.hpp">
+      <Filter>Source Files\src\Renderer\resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\renderer\resources\Texture.hpp">
+      <Filter>Source Files\src\Renderer\resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\stb_image.h">
+      <Filter>stbimage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\lib\glew\glew.c">
@@ -172,6 +184,12 @@
     </ClCompile>
     <ClCompile Include="..\src\renderer\managers\ResourceManager.cpp">
       <Filter>Source Files\src\Renderer\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\renderer\resources\Material.cpp">
+      <Filter>Source Files\src\Renderer\resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\renderer\resources\Texture.cpp">
+      <Filter>Source Files\src\Renderer\resources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

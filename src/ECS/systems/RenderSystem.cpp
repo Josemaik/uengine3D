@@ -18,19 +18,31 @@ void RenderSystem::LoadModels(EntityManager& em,GameEngine& ge)
 {
 	//cargar modelos
 	//********DATA->fbx********
+	////////////8 vertices y Coordenadas de textura
 	std::vector<Vertex> vertices =
 	{
 		Vertex(glm::vec3(-0.5f, -0.5f, 0.0f),glm::vec4(1.f,0.f,0.f,1.f)),
 		Vertex(glm::vec3(0.5f, -0.5f, 0.0f),glm::vec4(0.f,0.f,1.f,1.f)),
-		Vertex(glm::vec3(0.0f, 0.5f, 0.0f),glm::vec4(0.f,1.f,0.f,1.f))
+		Vertex(glm::vec3(0.0f, 0.5f, 0.0f),glm::vec4(0.f,1.f,0.f,1.f)),
+		Vertex(glm::vec3(0.0f, 0.5f, 0.0f),glm::vec4(0.f,1.f,0.f,1.f)),
+
+		Vertex(glm::vec3(-0.5f, -0.5f, 0.0f),glm::vec4(1.f,0.f,0.f,1.f)),
+		Vertex(glm::vec3(0.5f, -0.5f, 0.0f),glm::vec4(0.f,0.f,1.f,1.f)),
+		Vertex(glm::vec3(0.0f, 0.5f, 0.0f),glm::vec4(0.f,1.f,0.f,1.f)),
+		Vertex(glm::vec3(0.0f, 0.5f, 0.0f),glm::vec4(0.f,1.f,0.f,1.f)),
 	};
 	std::array<uint16_t, 3> indices = { 0,1,2 };
+	//Crear cubo
 	//**************************
 	// 
 	//Load Model for each entity
 	em.forEach<CmpsList, TagList>([&](Entity& e, RenderComponent& rc)
 	{
-		rc.model = new Model(ge.LoadModel(vertices, indices));
+		std::vector<const char*> filepaths;
+		filepaths.push_back("../data/front.png");
+		filepaths.push_back("../data/top.png");
+
+		rc.model = new Model(ge.LoadModel(filepaths,vertices, indices));
 		rc.model->setPosition(rc.position);
 		rc.model->setScale(rc.scale);
 	});

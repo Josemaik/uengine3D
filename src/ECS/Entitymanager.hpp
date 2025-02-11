@@ -114,7 +114,7 @@ namespace ETMG
 			if (!freeEntityIDs.empty()) {
 				//Reutilizo pos libre
 				newid = freeEntityIDs.back();
-				printf("Reutilizo entidad en pos %d\n", newid);
+				//printf("Reutilizo entidad en pos %d\n", newid);
 				freeEntityIDs.pop_back();
 				reused = true;
 			}

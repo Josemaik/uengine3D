@@ -77,7 +77,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glad;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glm;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glfw;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glew</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr3\lib;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glad;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glm;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glfw;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glew</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
@@ -93,7 +93,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glad;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glm;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glfw;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glew</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr3\lib;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glad;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glm;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glfw;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glew</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
@@ -145,6 +145,7 @@
     <ClInclude Include="..\lib\glew\GL\glew.h" />
     <ClInclude Include="..\lib\glfw\glfw3.h" />
     <ClInclude Include="..\lib\glfw\glfw3native.h" />
+    <ClInclude Include="..\lib\stb_image.h" />
     <ClInclude Include="..\src\ECS\components\RenderComponent.hpp" />
     <ClInclude Include="..\src\ECS\Entitymanager.hpp" />
     <ClInclude Include="..\src\ECS\meta_program.hpp" />
@@ -159,9 +160,11 @@
     <ClInclude Include="..\src\renderer\managers\ResourceManager.hpp" />
     <ClInclude Include="..\src\renderer\managers\WindowsManager.hpp" />
     <ClInclude Include="..\src\renderer\resources\Buffer.h" />
+    <ClInclude Include="..\src\renderer\resources\Material.hpp" />
     <ClInclude Include="..\src\renderer\resources\Mesh.hpp" />
     <ClInclude Include="..\src\renderer\resources\Shader.h" />
     <ClInclude Include="..\src\renderer\resources\State.hpp" />
+    <ClInclude Include="..\src\renderer\resources\Texture.hpp" />
     <ClInclude Include="..\src\renderer\resources\Vertex.h" />
   </ItemGroup>
   <ItemGroup>
@@ -178,8 +181,10 @@
     <ClCompile Include="..\src\renderer\managers\ResourceManager.cpp" />
     <ClCompile Include="..\src\renderer\managers\WindowsManager.cpp" />
     <ClCompile Include="..\src\renderer\resources\Buffer.cpp" />
+    <ClCompile Include="..\src\renderer\resources\Material.cpp" />
     <ClCompile Include="..\src\renderer\resources\Mesh.cpp" />
     <ClCompile Include="..\src\renderer\resources\Shader.cpp" />
+    <ClCompile Include="..\src\renderer\resources\Texture.cpp" />
     <ClCompile Include="..\src\renderer\resources\Vertex.cpp" />
   </ItemGroup>
   <ItemGroup>

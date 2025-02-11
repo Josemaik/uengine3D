@@ -72,7 +72,7 @@ void ENGI::GameEngine::beginFrame()
 
 /////////////
 ///RESOURCE
-std::shared_ptr<Mesh>& ENGI::GameEngine::LoadModel(std::vector<Vertex>& vertices, std::array<uint16_t, 3>& indices)
+std::shared_ptr<Mesh>& ENGI::GameEngine::LoadModel(std::vector<const char*>& filepaths,std::vector<Vertex>& vertices, std::array<uint16_t, 3>& indices)
 {
-	return m_resourceManager.loadResource<Mesh>(vertices, indices);
+	return m_resourceManager.loadResource<Mesh>(filepaths,vertices, indices);
 }
