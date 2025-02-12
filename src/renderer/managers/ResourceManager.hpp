@@ -11,23 +11,35 @@ class ResourceManager
 {
 public:
 	template<typename T>
-	std::shared_ptr<T>& loadResource(std::vector<const char*>& filepaths,std::vector<Vertex>& vertices, std::array<uint16_t, 3>& indices)
+	std::shared_ptr<T>& loadResource(std::vector<const char*>& filepaths, std::vector<Vertex>& vertices, std::vector< std::vector<uint16_t>> indices_vec)
 	{
 		//Mesh
 		std::shared_ptr<Mesh> mesh = std::make_shared<Mesh>();
-		//Buffer
-		std::shared_ptr<Buffer> buffer = std::make_shared<Buffer>(vertices, indices);
+		
 		//Materials
-		for(auto& path : filepaths)
+		std::shared_ptr<Material> mat;
+		if (filepaths.size() > 0) //set textures
 		{
-			std::shared_ptr<Material> mat = std::make_shared<Material>();
-			std::shared_ptr<Texture> tex= std::make_shared<Texture>();
-			if (tex->load(path))
+			for (int i = 0; i < filepaths.size();i++)
 			{
-				mat->setTexture(tex);
-				mesh->addBuffer(buffer, *mat);
+				//Buffer
+				std::shared_ptr<Buffer> buffer = std::make_shared<Buffer>(vertices, indices_vec[i]);
+				mat = std::make_shared<Material>();
+				std::shared_ptr<Texture> tex = std::make_shared<Texture>(filepaths[i]);
+				if (tex->load(filepaths[i]))
+				{
+					mat->setTexture(tex);
+					mesh->addBuffer(buffer, *mat);
+				}
 			}
 		}
+		else
+		{
+			std::shared_ptr<Buffer> buffer = std::make_shared<Buffer>(vertices, indices_vec[0]);
+			mat = std::make_shared<Material>();//Empty material
+			mesh->addBuffer(buffer, *mat);
+		}
+		
 
 		m_meshes[nextID] = mesh;
 

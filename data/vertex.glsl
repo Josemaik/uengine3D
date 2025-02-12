@@ -8,5 +8,5 @@ varying vec4 fcolor;
 void main(){
 	gl_Position = mvp * vec4(vpos, 1);
 	ftex = vtex ;
-	fcolor = vec4(1,1,1,1);
+	fcolor = vcolor;
 }

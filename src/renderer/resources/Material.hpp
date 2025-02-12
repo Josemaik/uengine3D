@@ -19,7 +19,7 @@ public:
 	void setShader(const std::shared_ptr<Shader>& shader);
 	void setTexture(const std::shared_ptr<Texture>& tex);
 
-	void prepare();
+	void prepare() const;
 
 	std::shared_ptr<Texture> m_texture;
 	std::shared_ptr<Shader> m_shader;

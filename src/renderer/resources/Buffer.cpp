@@ -8,5 +8,5 @@ void Buffer::draw(const Shader& shader) const
 	//Atributos del shader
 	shader.setupAttribs();
 
-	glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_SHORT, nullptr);
+	glDrawElements(GL_TRIANGLES, num_indices, GL_UNSIGNED_SHORT, nullptr);
 }

@@ -12,7 +12,7 @@ ENGI::GameEngine::GameEngine(int const _width, int const _height)
 		//Inicializar input
 		//pointer
 		//Initialize Camera
-		auto camera = m_renderManager.CreateCamera(glm::vec3(0.0f, 0.0f, 6.0f),
+		auto camera = m_renderManager.CreateCamera(glm::vec3(-1.0f, 2.0f, 6.0f),
 																 glm::vec3(0.0f, 0.0f, 0.0f),
 																 glm::vec3(0.0f, 1.0f, 0.0f));
 		camera->setClearColor(glm::vec3(0.f, 0.f, 0.f));
@@ -72,7 +72,7 @@ void ENGI::GameEngine::beginFrame()
 
 /////////////
 ///RESOURCE
-std::shared_ptr<Mesh>& ENGI::GameEngine::LoadModel(std::vector<const char*>& filepaths,std::vector<Vertex>& vertices, std::array<uint16_t, 3>& indices)
+std::shared_ptr<Mesh>& ENGI::GameEngine::LoadModel(std::vector<const char*>& filepaths,std::vector<Vertex>& vertices, std::vector< std::vector<uint16_t>> indices)
 {
-	return m_resourceManager.loadResource<Mesh>(filepaths,vertices, indices);
+	return m_resourceManager.loadResource<Mesh>(filepaths, vertices, indices);
 }

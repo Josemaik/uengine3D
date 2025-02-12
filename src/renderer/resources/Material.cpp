@@ -20,7 +20,7 @@ void Material::setTexture(const std::shared_ptr<Texture>& tex)
 	m_texture = tex;
 }
 
-void Material::prepare()
+void Material::prepare() const
 {
 	//Active Shader
 	const std::shared_ptr<Shader>& currentShader = getShader();
@@ -32,12 +32,15 @@ void Material::prepare()
 	//Bindear Textura
 	if (m_texture)
 	{
-		//set true to draw texture
+		// Indicar al shader que use la textura
 		GLint usetextureloc = glGetUniformLocation(currentShader->getID(), "drawTexture");
-		currentShader->setInt(usetextureloc, GL_FALSE); //GL_TRUE-> dibujar textura
-		//bind texture
+		currentShader->setInt(usetextureloc, GL_TRUE);
+
+		// bind
 		m_texture->bind();
-		//set texSampler
-		currentShader->setInt(currentShader->getLocation("texSampler"), 0);
+
+		// Asignar la textura al sampler
+		GLint texsamplerloc = glGetUniformLocation(currentShader->getID(), "texSampler");
+		currentShader->setInt(texsamplerloc, 0);
 	}
 }

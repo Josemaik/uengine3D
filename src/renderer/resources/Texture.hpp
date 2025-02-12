@@ -6,8 +6,11 @@
 class Texture
 {
 public:
-	Texture() = default;
-	~Texture() 
+	Texture(const char* _filepath)
+	{
+		filepath = _filepath;
+	}
+	~Texture()
 	{
 		///stbi_image_free();
 	}
@@ -17,7 +20,8 @@ public:
 	const glm::ivec2& getSize() const;
 	void bind() const;
 
-	GLuint m_id;
-	int m_width{}, m_height{};
+	GLuint m_id{ 0 };
+	int m_width{0}, m_height{0};
+	const char* filepath = nullptr;
 };
 

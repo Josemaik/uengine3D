@@ -8,7 +8,8 @@
 class Buffer
 {
 public:
-	Buffer(std::vector<Vertex> vertices, std::array<uint16_t, 3> indices)
+	Buffer(std::vector<Vertex> vertices, std::vector<uint16_t> indices)
+		:num_indices(static_cast<GLsizei>(indices.size()))
 	{
 		//Generamos buffers y colocamos identificadores
 		glGenBuffers(2, m_ids.data());
@@ -27,5 +28,6 @@ public:
 	void draw(const Shader& shader) const;
 
 	std::array<uint32_t, 2> m_ids;
+	GLsizei num_indices{ 0 };
 };
 

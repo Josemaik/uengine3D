@@ -6,8 +6,8 @@
 
 struct Vertex
 {
-	Vertex(glm::vec3 _position, glm::vec4 _color)
-		:position(_position), color(_color)
+	Vertex(glm::vec3 _position, glm::vec4 _color,glm::vec2 _textCord)
+		:position(_position), color(_color), textureCord(_textCord)
 	{
 	}
 

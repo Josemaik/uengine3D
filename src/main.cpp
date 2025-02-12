@@ -31,7 +31,8 @@ int main() {
 	RenderSystem rsys{};
 
 	//Create Triangles
-	ef.CreateTriangles(em);
+	//ef.CreateTriangles(em);
+	ef.CreateCube(em);
 
 	//Load Models
 	rsys.LoadModels(em, engine);
