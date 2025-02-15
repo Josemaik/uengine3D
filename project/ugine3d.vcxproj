@@ -77,7 +77,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr3\lib;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glad;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glm;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glfw;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glew</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\lib;..\lib\glad;..\lib\glm;..\lib\glfw;..\lib\glew</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
@@ -93,7 +93,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr3\lib;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glad;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glm;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glfw;C:\Users\JOSE MANUEL\Desktop\UTAD\progra3D\plantilla3d_pr2\lib\glew</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\lib;..\lib\glad;..\lib\glm;..\lib\glfw;..\lib\glew</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
