@@ -1,6 +1,19 @@
 #include "Material.hpp"
 #include "State.hpp"
 
+bool Material::load(const char* filepath)
+{
+	m_filepath = filepath;
+	m_isLoad = true;
+	return isLoaded();
+}
+
+void Material::unload()
+{
+	m_isLoad = false;
+	printf("Unload Material\n");
+}
+
 const std::shared_ptr<Shader>& Material::getShader() const
 {
 	if (m_shader)
@@ -15,9 +28,9 @@ void Material::setShader(const std::shared_ptr<Shader>& shader)
 	m_shader = shader;
 }
 
-void Material::setTexture(const std::shared_ptr<Texture>& tex)
+void Material::setTexture(Texture* text)
 {
-	m_texture = tex;
+	m_texture = text;
 }
 
 void Material::prepare() const

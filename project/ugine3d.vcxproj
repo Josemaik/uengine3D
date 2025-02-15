@@ -162,6 +162,7 @@
     <ClInclude Include="..\src\renderer\resources\Buffer.h" />
     <ClInclude Include="..\src\renderer\resources\Material.hpp" />
     <ClInclude Include="..\src\renderer\resources\Mesh.hpp" />
+    <ClInclude Include="..\src\renderer\resources\Resource.hpp" />
     <ClInclude Include="..\src\renderer\resources\Shader.h" />
     <ClInclude Include="..\src\renderer\resources\State.hpp" />
     <ClInclude Include="..\src\renderer\resources\Texture.hpp" />

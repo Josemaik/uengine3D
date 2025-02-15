@@ -1,7 +1,10 @@
 #pragma once
 
 #include "../components/Camera.hpp"
+#include "../resources/Shader.h"
 #include <memory>
+#include <map>
+
 
 class RenderManager
 {
@@ -27,5 +30,6 @@ public:
 	}
 private:
 	Camera* m_camera{};
+	std::map<std::string, Shader*> shaders;
 };
 

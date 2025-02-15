@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Resource.hpp"
+
 #include <memory>
 #include <utility>
 #include "Buffer.h"
@@ -8,13 +10,19 @@
 using shared_buffer = const std::shared_ptr<Buffer>&;
 using shared_shader = const std::shared_ptr<Shader>&;
 
-class Mesh
+class Mesh : public Resource
 {
 public:
+	Mesh(std::size_t id) { m_id = id; }
+	Mesh(std::size_t id, shared_buffer, Material*);
 	~Mesh()
 	{
-		printf("Se destruye Mesh\n");
+		unload();
 	}
+
+	bool load(const char* filepath) override;
+	void unload() override;
+
 	//Add new buffer
 	void addBuffer(shared_buffer buffer, const Material& material);
 

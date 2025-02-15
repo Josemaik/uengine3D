@@ -1,4 +1,5 @@
 #include "RenderManager.hpp"
+#include "ResourceManager.hpp"
 #include "../resources/Shader.h"
 #include "../resources/State.hpp"
 
@@ -14,12 +15,21 @@ Camera* RenderManager::CreateCamera(glm::vec3 _position, glm::vec3 _origin, glm:
 
 void RenderManager::LoadShader()
 {
+	auto& rmn = ResourceManager::getInstance();
+	shaders["texture"] = rmn.loadResource<Shader>("shaderTexture", std::string("../data/vertex.glsl"),
+		std::string("../data/fragment.glsl"));
+	/*shaders["texture"] = rmn.loadResource<Shader>(std::string("../data/vertex.glsl"),
+		std::string("../data/fragment.glsl"));*/
+	/*int xd = 2;
+	shaders["texture"] = rmn.loadResource<Shader>("xd",xd);*/
+
 	//Create Shaders
-	Shader shader("../data/vertex.glsl", "../data/fragment.glsl");
+	//Shader shader("../data/vertex.glsl", "../data/fragment.glsl");
+	//shaders["texture"]->load();
 	//Pasa a ser el Shader por defecto
-	shader.AttachandLink();
-	//Use Program
-	shader.use();
-	//Pasarlo como defaultshader
-	State::defaultShader = std::make_shared<Shader>(shader);
+	//shaders["texture"]->AttachandLink();
+	////Use Program
+	shaders["texture"]->use();
+	////Pasarlo como defaultshader
+	State::defaultShader = std::make_shared<Shader>(*shaders["texture"]);
 }

@@ -1,26 +1,35 @@
 #pragma once
 
+#include "Resource.hpp"
+
 #include "Texture.hpp"
 #include "Shader.h"
 #include <memory>
 
-class Material
+class Material : public Resource
 {
 public:
-	Material(const std::shared_ptr<Texture>& tex = nullptr, const std::shared_ptr<Shader>& shader = nullptr)
+	Material(std::size_t id) { m_id = id; }
+	/*Material(std::size_t id,const std::shared_ptr<Texture>& tex = nullptr, const std::shared_ptr<Shader>& shader = nullptr)
 		:m_texture(tex),m_shader(shader)
 	{
-	}
+		m_id = id;
+	}*/
 	~Material() {}
 
+	bool load(const char* filepath) override;
+	void unload() override;
+
 	const std::shared_ptr<Shader>& getShader() const;
-	const std::shared_ptr<Texture>& getTexture() const { return m_texture; }
+	const Texture* getTexture() const { return m_texture; }
 	//std::shared_ptr<Shader>& getShader() { return m_shader; }
 	void setShader(const std::shared_ptr<Shader>& shader);
-	void setTexture(const std::shared_ptr<Texture>& tex);
+	void setTexture(Texture* text);
 
 	void prepare() const;
 
-	std::shared_ptr<Texture> m_texture;
+private:
+	//std::shared_ptr<Texture> m_texture;
+	Texture* m_texture;
 	std::shared_ptr<Shader> m_shader;
 };

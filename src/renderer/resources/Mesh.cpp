@@ -1,6 +1,25 @@
 #include "Mesh.hpp"
 #include "State.hpp"
 
+Mesh::Mesh(std::size_t id, shared_buffer buffer, Material* material)
+{
+	m_id = id;
+	addBuffer(buffer,*material);
+	//name
+}
+
+bool Mesh::load(const char* filepath)
+{
+	m_isLoad = true;
+	return isLoaded();
+}
+
+void Mesh::unload()
+{
+	m_isLoad = false;
+	printf("Unload mesh\n");
+}
+
 void Mesh::addBuffer(shared_buffer buffer, const Material& material)
 {
 	//Vec_Buffers.emplace_back(std::make_pair(buffer, shader));

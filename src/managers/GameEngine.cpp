@@ -72,7 +72,22 @@ void ENGI::GameEngine::beginFrame()
 
 /////////////
 ///RESOURCE
-std::shared_ptr<Mesh>& ENGI::GameEngine::LoadModel(std::vector<const char*>& filepaths,std::vector<Vertex>& vertices, std::vector< std::vector<uint16_t>> indices)
+Mesh* ENGI::GameEngine::LoadModel(std::vector<const char*>& filepaths,std::vector<Vertex>& vertices, std::vector< std::vector<uint16_t>> indices)
 {
-	return m_resourceManager.loadResource<Mesh>(filepaths, vertices, indices);
+	auto textura_front = m_resourceManager.loadResource<Texture>(filepaths[0]);
+	auto textura1_top = m_resourceManager.loadResource<Texture>(filepaths[1]);
+
+	auto mat_front = m_resourceManager.loadResource<Material>("material_box_front");
+	auto mat_top = m_resourceManager.loadResource<Material>("material_box_top");
+	mat_front->setTexture(textura_front);
+	mat_top->setTexture(textura1_top);
+
+	std::shared_ptr<Buffer> bufferBox = std::make_shared<Buffer>(vertices, indices[0]);
+	std::shared_ptr<Buffer> bufferBox1 = std::make_shared<Buffer>(vertices, indices[1]);
+
+	auto mesh = m_resourceManager.loadResource<Mesh>("caja");
+	mesh->addBuffer(bufferBox,*mat_front);
+	mesh->addBuffer(bufferBox1,*mat_top);
+
+	return mesh;
 }
