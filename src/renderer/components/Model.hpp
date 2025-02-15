@@ -10,6 +10,11 @@ public:
 	Model(Mesh* _mesh) :
 		mesh(_mesh)
 	{}
+	~Model()
+	{
+		delete mesh;
+		mesh = nullptr;
+	}
 
 	Mesh* getMesh() const { return mesh; }
 

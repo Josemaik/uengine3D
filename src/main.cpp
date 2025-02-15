@@ -32,6 +32,7 @@ int main() {
 
 	//Create Triangles
 	//ef.CreateTriangles(em);
+	//CreateCube
 	ef.CreateCube(em);
 
 	//Load Models

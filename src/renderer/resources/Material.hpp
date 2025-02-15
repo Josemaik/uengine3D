@@ -9,7 +9,7 @@
 class Material : public Resource
 {
 public:
-	Material(std::size_t id) { m_id = id; }
+	Material(std::size_t id) { m_id = id; m_texture = nullptr; }
 	/*Material(std::size_t id,const std::shared_ptr<Texture>& tex = nullptr, const std::shared_ptr<Shader>& shader = nullptr)
 		:m_texture(tex),m_shader(shader)
 	{
@@ -30,6 +30,6 @@ public:
 
 private:
 	//std::shared_ptr<Texture> m_texture;
-	Texture* m_texture;
+	Texture* m_texture = nullptr;
 	std::shared_ptr<Shader> m_shader;
 };

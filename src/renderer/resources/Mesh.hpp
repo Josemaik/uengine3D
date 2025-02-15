@@ -24,7 +24,7 @@ public:
 	void unload() override;
 
 	//Add new buffer
-	void addBuffer(shared_buffer buffer, const Material& material);
+	void addBuffer(shared_buffer buffer, const Material& material = NULL);
 
 	size_t getNumBuffers() const;
 

@@ -20,7 +20,7 @@ public:
 	void unload() override;
 
 	uint32_t getId() const { return m_id; }
-	const glm::ivec2& getSize() const;
+	const glm::ivec2 getSize() const;
 	void bind() const;
 private:
 	void setup() override;

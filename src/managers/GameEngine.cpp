@@ -70,24 +70,34 @@ void ENGI::GameEngine::beginFrame()
 	m_renderManager.drawCamera();
 }
 
+
+
 /////////////
 ///RESOURCE
-Mesh* ENGI::GameEngine::LoadModel(std::vector<const char*>& filepaths,std::vector<Vertex>& vertices, std::vector< std::vector<uint16_t>> indices)
+
+Texture* ENGI::GameEngine::LoadTexture2D(const char* filepath)
 {
-	auto textura_front = m_resourceManager.loadResource<Texture>(filepaths[0]);
-	auto textura1_top = m_resourceManager.loadResource<Texture>(filepaths[1]);
+	return m_resourceManager.loadResource<Texture>(filepath);
+}
 
-	auto mat_front = m_resourceManager.loadResource<Material>("material_box_front");
-	auto mat_top = m_resourceManager.loadResource<Material>("material_box_top");
-	mat_front->setTexture(textura_front);
-	mat_top->setTexture(textura1_top);
-
-	std::shared_ptr<Buffer> bufferBox = std::make_shared<Buffer>(vertices, indices[0]);
-	std::shared_ptr<Buffer> bufferBox1 = std::make_shared<Buffer>(vertices, indices[1]);
-
-	auto mesh = m_resourceManager.loadResource<Mesh>("caja");
-	mesh->addBuffer(bufferBox,*mat_front);
-	mesh->addBuffer(bufferBox1,*mat_top);
-
+Mesh* ENGI::GameEngine::LoadModel(const char* name,
+	std::vector<const char*>& textures,std::vector<Vertex>& vertices, std::vector< std::vector<uint16_t>> indices)
+{
+	auto mesh = m_resourceManager.loadResource<Mesh>(name);
+	if (textures.size() > 0) //Meshes with texturez
+	{
+		for (unsigned int i = 0; i < textures.size(); i++)
+		{
+			std::shared_ptr<Buffer> bufferBox = std::make_shared<Buffer>(vertices, indices[i]);
+			auto mat = m_resourceManager.loadResource<Material>("material_box");
+			mat->setTexture(LoadTexture2D(textures[i]));
+			mesh->addBuffer(bufferBox, *mat);
+		}
+	}
+	else { //Meshes without texture
+		std::shared_ptr<Buffer> buffer = std::make_shared<Buffer>(vertices, indices[0]);
+		mesh->addBuffer(buffer);
+	}
+	
 	return mesh;
 }

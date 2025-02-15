@@ -4,7 +4,7 @@
 class Resource
 {
 protected:
-	std::size_t m_id;
+	std::size_t m_id{ 0 };
 	std::string m_filepath;
 	bool m_isLoad{ false };
 

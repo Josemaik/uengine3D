@@ -17,7 +17,7 @@ void Texture::unload()
 	m_isLoad = false;
 }
 
-const glm::ivec2& Texture::getSize() const
+const glm::ivec2 Texture::getSize() const
 {
 	return glm::ivec2(m_width, m_height);
 }
