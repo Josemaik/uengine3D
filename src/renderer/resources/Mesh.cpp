@@ -86,14 +86,6 @@ void Mesh::setup()
 	std::vector < tinyobj::material_t> materials;
 	std::string warn, err;
 
-	//almacenar vertices e indices
-	std::vector<Vertex> vertices;
-	std::vector<uint16_t> indices;
-	//paths de textura
-	/*std::vector<const char*> texturePaths;*/
-	//save vertex index for evoit duplicates
-	std::unordered_map<std::string, uint16_t> uniqueVertex;
-
 	std::unordered_map<int, std::vector<Vertex>> materialVertices;
 	std::unordered_map<int, std::vector<uint16_t>> materialIndices;
 
@@ -142,30 +134,8 @@ void Mesh::setup()
 			}
 
 			index_offset += shape.mesh.num_face_vertices[f]; //add num vertex of current face
-			// Evitar duplicados y generar índice
-			/*std::string key = std::to_string(index.vertex_index) + "/" +
-				std::to_string(index.texcoord_index) + "/" +
-				std::to_string(index.normal_index);
-
-			if (uniqueVertex.find(key) == uniqueVertex.end()) {
-				uniqueVertex[key] = static_cast<uint16_t>(vertices.size());
-				vertices.push_back(vertexAux);
-			}*/
-			//save index
-			//indices.push_back(uniqueVertex[key]);
-
-			/*meshAux->m_vertexArray->push_back(*vertexAux);
-			meshAux->m_indexArray.push_back(meshAux->m_indexArray.size());*/
 		}
 	}
-	// extract mat and textures
-	//for (const auto& material : materials)
-	//{
-	//	if (!material.ambient_texname.empty()) {
-	//		std::string fullPath = "../data/" + material.ambient_texname;
-	//		texturePaths.push_back(fullPath.c_str());
-	//	}
-	//}
 	for (size_t i = 0; i < materials.size(); i++)
 	{
 		if (materialVertices[i].empty()) continue;
@@ -183,11 +153,4 @@ void Mesh::setup()
 	}
 
 	m_isLoad = true;
-	//texturas, vertices e indices
-	// falta construir el Material , anadir los buffers y listo
-	//addBuffer(std::shared_ptr<)
-	//std::vector<std::vector<uint16_t>> indexGroups = { indices };
-	//Add buffer
-	//std::shared_ptr<Buffer> buffer = std::make_shared<Buffer>(vertices,indices);
-	//addBuffer(buffer, material);
 }

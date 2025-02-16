@@ -32,9 +32,9 @@ int main() {
 
 	//Create Triangles
 	//ef.CreateTriangles(em);
-	//CreateCube
 	//ef.CreateCube(em);
 	ef.CreateBoxStack(em);
+	ef.CreateGunSlinger(em);
 
 	//Load Models
 	rsys.LoadModels(em, engine);

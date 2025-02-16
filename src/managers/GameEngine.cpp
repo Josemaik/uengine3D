@@ -12,10 +12,10 @@ ENGI::GameEngine::GameEngine(int const _width, int const _height)
 		//Inicializar input
 		//pointer
 		//Initialize Camera
-		auto camera = m_renderManager.CreateCamera(glm::vec3(-1.0f, 4.0f, 6.0f),
+		auto camera = m_renderManager.CreateCamera(glm::vec3(-1.0f, 4.0f, 30.0f),
 																 glm::vec3(0.0f, 0.0f, 0.0f),
 																 glm::vec3(0.0f, 1.0f, 0.0f));
-		camera->setClearColor(glm::vec3(0.f, 0.f, 0.f));
+		camera->setClearColor(glm::vec3(1.f, 1.f, 0.f));
 		camera->setProjection(glm::perspective(45.0f, 800.0f / 600.0f, 0.1f, 100.0f));
 		camera->setViewport(glm::ivec4(0, 0, width, height));
 		//Initialize Shader

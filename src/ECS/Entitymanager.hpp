@@ -24,7 +24,7 @@ namespace ETMG
 	template<typename CMPList, typename TAGList, typename SNGLIst>//typename SNGLIst
 	struct EntityManager
 	{
-		static constexpr std::size_t MAX_ENTITIES{ 10 }; //máximo de entidades vivas
+		static constexpr std::size_t MAX_ENTITIES{ 15 }; //máximo de entidades vivas
 
 		inline static std::size_t nextID{ 0 }; // ID de la siguiente entidad que se crea
 

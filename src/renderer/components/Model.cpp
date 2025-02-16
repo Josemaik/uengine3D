@@ -11,7 +11,7 @@ void Model::draw()
 	//glm::mat4 rotationMatrix = glm::rotate(getAngle(), getRotation());
 	glm::quat rotation = getRotation(); //glm::angleAxis(glm::radians(getAngle()), getRotation());
 
-	State::modelMatrix = translationMatrix * glm::mat4_cast(rotation); //* scaleMatrix;
+	State::modelMatrix = translationMatrix * glm::mat4_cast(rotation) * scaleMatrix;
 	
 	//LLamamos a dibujar la malla
 	if(mesh)

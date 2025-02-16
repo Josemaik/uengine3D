@@ -102,8 +102,11 @@ void RenderSystem::LoadModels(EntityManager& em,GameEngine& ge)
 		}
 
 		//BoxStack
-		if(e.hasTag<boxStack>())
+		if(e.hasTag<boxStackTag>())
 			rc.model = new Model(ge.LoadModel("../data/models/box_stack.obj"));
+		//GunSlinger
+		if (e.hasTag<gunslingerTag>())
+			rc.model = new Model(ge.LoadModel("../data/models/gunslinger.obj"));
 
 		//Set position and scale
 		rc.model->setPosition(rc.position);
