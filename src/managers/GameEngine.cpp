@@ -12,7 +12,7 @@ ENGI::GameEngine::GameEngine(int const _width, int const _height)
 		//Inicializar input
 		//pointer
 		//Initialize Camera
-		auto camera = m_renderManager.CreateCamera(glm::vec3(-1.0f, 2.0f, 6.0f),
+		auto camera = m_renderManager.CreateCamera(glm::vec3(-1.0f, 4.0f, 6.0f),
 																 glm::vec3(0.0f, 0.0f, 0.0f),
 																 glm::vec3(0.0f, 1.0f, 0.0f));
 		camera->setClearColor(glm::vec3(0.f, 0.f, 0.f));
@@ -79,11 +79,22 @@ Texture* ENGI::GameEngine::LoadTexture2D(const char* filepath)
 {
 	return m_resourceManager.loadResource<Texture>(filepath);
 }
-
-Mesh* ENGI::GameEngine::LoadModel(const char* name,
-	std::vector<const char*>& textures,std::vector<Vertex>& vertices, std::vector< std::vector<uint16_t>> indices)
+//Load Model -> OBJ
+Mesh* ENGI::GameEngine::LoadModel(const char* filepath)
 {
-	auto mesh = m_resourceManager.loadResource<Mesh>(name);
+	auto mesh = m_resourceManager.loadResource<Mesh>(filepath);
+	auto textpaths = mesh->getTexturePaths();
+	for (unsigned int i = 0; i < mesh->getNumBuffers(); i++)
+	{
+		mesh->getMaterial(i).setTexture(LoadTexture2D(textpaths[i].c_str()));
+	}
+	return mesh;
+}
+
+///Load Model-> vertices and indices writed in code
+Mesh* ENGI::GameEngine::LoadModelCodec(std::vector<const char*>& textures,std::vector<Vertex>& vertices, std::vector< std::vector<uint16_t>> indices)
+{
+	auto mesh = m_resourceManager.loadResource<Mesh>("");
 	if (textures.size() > 0) //Meshes with texturez
 	{
 		for (unsigned int i = 0; i < textures.size(); i++)

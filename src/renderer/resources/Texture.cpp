@@ -13,7 +13,7 @@ bool Texture::load(const char* filename)
 
 void Texture::unload()
 {
-	glDeleteTextures(1, &m_id);
+	glDeleteTextures(1, &idTexture);
 	m_isLoad = false;
 }
 
@@ -24,7 +24,7 @@ const glm::ivec2 Texture::getSize() const
 
 void Texture::bind() const
 {
-	glBindTexture(GL_TEXTURE_2D, m_id);
+	glBindTexture(GL_TEXTURE_2D, idTexture);
 }
 
 void Texture::setup()
@@ -37,9 +37,9 @@ void Texture::setup()
 	{
 		//Generamos textura
 		//GLuint textId;
-		glGenTextures(1, &m_id);
+		glGenTextures(1, &idTexture);
 		//Activate
-		glBindTexture(GL_TEXTURE_2D, m_id);
+		glBindTexture(GL_TEXTURE_2D, idTexture);
 		//Parameters
 		//// Set the texture wrapping parameters
 		//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);

@@ -18,7 +18,9 @@ namespace ENGI { class GameEngine; }
 //declare TAGS
 //draw
 struct triangleTag{};
-struct cubeTag{};
+struct boxTag{};
+struct boxStack{};
+struct gunslinger{};
 
 //COMPONENTS
 using CL = MP::TypeList <
@@ -28,7 +30,9 @@ using CL = MP::TypeList <
 //TAGS
 using TL = MP::TypeList <
 	triangleTag,
-	cubeTag
+	boxTag,
+	boxStack,
+	gunslinger
 >;
 //SINGLETONS
 using SCL = MP::TypeList <

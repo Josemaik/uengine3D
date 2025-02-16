@@ -10,7 +10,7 @@ public:
 	{
 		//m_filepath = _filepath;
 	}
-	Texture(std::size_t id): m_id(id) {}
+	Texture(std::size_t id) { m_id = id; }
 	~Texture()
 	{
 		unload();///stbi_image_free();
@@ -19,13 +19,13 @@ public:
 	bool load(const char* filename) override;
 	void unload() override;
 
-	uint32_t getId() const { return m_id; }
+	uint32_t getId() const { return idTexture; }
 	const glm::ivec2 getSize() const;
 	void bind() const;
 private:
 	void setup() override;
 
-	GLuint m_id{ 0 };
+	GLuint idTexture{ 0 };
 	int m_width{0}, m_height{0};
 	//const char* filepath = nullptr;
 };

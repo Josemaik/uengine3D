@@ -7,5 +7,6 @@ class EntityFactory
 public:
 	void CreateTriangles(EntityManager& em);
 	void CreateCube(EntityManager& em);
+	void CreateBoxStack(EntityManager& em);
 };
 

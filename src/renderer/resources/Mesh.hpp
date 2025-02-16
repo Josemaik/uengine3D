@@ -33,11 +33,16 @@ public:
 	const Material& getMaterial(size_t index) const;
 	Material& getMaterial(size_t index);
 
-	void draw();
+	std::vector<std::string> getTexturePaths() const { return texturePaths; }
 
+	void draw();
+private:
+	void setup() override;
 	//std::vector< std::pair<shared_buffer, shared_shader> > Vec_Buffers;
 	std::vector<std::shared_ptr<Buffer>> buffers;
 	//std::vector<std::shared_ptr<Shader>> shaders;
 	std::vector<Material> materials;
+
+	std::vector<std::string> texturePaths;
 };
 

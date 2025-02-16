@@ -22,7 +22,16 @@ void EntityFactory::CreateCube(EntityManager& em)
 {
 	//Creamos cubo
 	auto& cube{ em.createEntity() };
-	em.addTag<cubeTag>(cube);
+	em.addTag<boxTag>(cube);
 	auto& r = em.addComponent<RenderComponent>(cube);
+	r.position = glm::vec3(0.f, 0.f, 0.f);
+}
+
+void EntityFactory::CreateBoxStack(EntityManager& em)
+{
+	//Creamos cubo
+	auto& boxstack{ em.createEntity() };
+	em.addTag<boxStack>(boxstack);
+	auto& r = em.addComponent<RenderComponent>(boxstack);
 	r.position = glm::vec3(0.f, 0.f, 0.f);
 }

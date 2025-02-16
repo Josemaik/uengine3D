@@ -33,8 +33,8 @@ namespace ENGI
 		void EndFrame();
 		//Resource
 		Texture* LoadTexture2D(const char* filepath);
-		Mesh* LoadModel(const char* name,
-			std::vector<const char*>& filepaths, std::vector<Vertex>& vertices, std::vector< std::vector<uint16_t>> indices);
+		Mesh* LoadModel(const char* filepath);
+		Mesh* LoadModelCodec(std::vector<const char*>& filepaths, std::vector<Vertex>& vertices, std::vector< std::vector<uint16_t>> indices);
 		 
 	private:
 		int width{}, height{};

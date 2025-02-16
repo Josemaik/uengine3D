@@ -2,13 +2,13 @@
 
 #include "../../managers/GameEngine.hpp"
 
-void RenderSystem::update(EntityManager& em, float Deltatime)
+void RenderSystem::update(EntityManager& em, float dt)
 {
 	em.forEach<CmpsList, TagList>([&](Entity& e,RenderComponent& rc)
 	{
 		//Update rotation
-		float angle = rc.angle * Deltatime;
-		rc.model->setRotation(glm::angleAxis(glm::radians(angle), glm::vec3(0, 1, 0)));
+		rc.currentangle += rc.angularvelocity * dt;
+		rc.model->setRotation(glm::angleAxis(glm::radians(rc.currentangle), glm::vec3(0, 1, 0)));
 		//Draw
 		rc.model->draw();
 	});
@@ -34,9 +34,9 @@ void RenderSystem::LoadModels(EntityManager& em,GameEngine& ge)
 			std::vector<uint16_t> indices_triangle = { 0,1,2 };
 			//Load Model
 			vector_indices.push_back(indices_triangle);
-			rc.model = new Model(ge.LoadModel("triangle",texturepaths, vertices_triangle, vector_indices));
+			rc.model = new Model(ge.LoadModelCodec(texturepaths, vertices_triangle, vector_indices));
 		}
-		if (e.hasTag<cubeTag>())
+		if (e.hasTag<boxTag>())
 		{
 			//Cube Data								};
 			std::vector<Vertex> vertices_cube{
@@ -98,8 +98,12 @@ void RenderSystem::LoadModels(EntityManager& em,GameEngine& ge)
 			texturepaths.push_back("../data/top.png");
 			vector_indices.push_back(indices_cube_topdown);
 
-			rc.model = new Model(ge.LoadModel("cube",texturepaths, vertices_cube, vector_indices));
+			rc.model = new Model(ge.LoadModelCodec(texturepaths, vertices_cube, vector_indices));
 		}
+
+		//BoxStack
+		if(e.hasTag<boxStack>())
+			rc.model = new Model(ge.LoadModel("../data/models/box_stack.obj"));
 
 		//Set position and scale
 		rc.model->setPosition(rc.position);

@@ -77,7 +77,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\lib;..\lib\glad;..\lib\glm;..\lib\glfw;..\lib\glew</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\lib\tinyobjloader-master;..\lib;..\lib\glad;..\lib\glm;..\lib\glfw;..\lib\glew</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
@@ -93,7 +93,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\lib;..\lib\glad;..\lib\glm;..\lib\glfw;..\lib\glew</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\lib\tinyobjloader-master;..\lib;..\lib\glad;..\lib\glm;..\lib\glfw;..\lib\glew</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>

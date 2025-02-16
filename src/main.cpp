@@ -33,7 +33,8 @@ int main() {
 	//Create Triangles
 	//ef.CreateTriangles(em);
 	//CreateCube
-	ef.CreateCube(em);
+	//ef.CreateCube(em);
+	ef.CreateBoxStack(em);
 
 	//Load Models
 	rsys.LoadModels(em, engine);
@@ -48,7 +49,7 @@ int main() {
 		//Begin Frame
 		engine.beginFrame();
 		//Update render system
-		rsys.update(em, static_cast<float>(lastTime));
+		rsys.update(em, deltaTime);
 		//End frame
 		engine.EndFrame();
 	}

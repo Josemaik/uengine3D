@@ -17,7 +17,8 @@ struct RenderComponent
 	glm::vec3 position{ 0.f,0.f,0.f };
 	glm::vec3 rotation{ 0.f,0.f,0.f };
 	glm::vec3 scale{ 1.f,1.f,1.f };
-	float angle{ 32.f };
+	float angularvelocity{ 32.f };
+	float currentangle{ 32.f };
 	//Model
 	Model* model{nullptr};
 	//std::shared_ptr<Model> model;
