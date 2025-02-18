@@ -117,7 +117,7 @@ void Mesh::setup()
 				if (!attrib.texcoords.empty())
 				{
 					vertexAux.textureCord.x = attrib.texcoords[2 * idx.texcoord_index + 0];
-					vertexAux.textureCord.y = attrib.texcoords[2 * idx.texcoord_index + 1];
+					vertexAux.textureCord.y = 1.f - attrib.texcoords[2 * idx.texcoord_index + 1];
 				}
 				else
 				{
