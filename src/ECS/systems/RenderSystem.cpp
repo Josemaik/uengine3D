@@ -111,6 +111,7 @@ void RenderSystem::LoadModels(EntityManager& em,GameEngine& ge)
 		//Set position and scale
 		rc.model->setPosition(rc.position);
 		rc.model->setScale(rc.scale);
+		rc.meshloaded = true;
 	});
 
 }
@@ -121,5 +122,6 @@ void RenderSystem::UnloadModels(EntityManager& em)
 	{
 		delete rc.model;
 		rc.model = nullptr;
+		rc.meshloaded = false;
 	});
 }

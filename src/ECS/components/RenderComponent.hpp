@@ -21,5 +21,6 @@ struct RenderComponent
 	float currentangle{ 32.f };
 	//Model
 	Model* model{nullptr};
+	bool meshloaded{ false };
 	//std::shared_ptr<Model> model;
 };

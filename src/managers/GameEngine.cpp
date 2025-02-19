@@ -10,10 +10,13 @@ ENGI::GameEngine::GameEngine(int const _width, int const _height)
 	{
 		std::cout << "Window Initialized succesfully\n";
 		//Inicializar input
-		//pointer
+		//----- Configure callback -----//
+		glfwSetWindowUserPointer(GetWindow(), &m_inputManager);
+		glfwSetKeyCallback(GetWindow(), InputManager::keyCallback);
+		glfwSetMouseButtonCallback(GetWindow(), InputManager::mouseButtonCallback);
 		//Initialize Camera
-		auto camera = m_renderManager.CreateCamera(glm::vec3(-1.0f, 4.0f, 30.0f),
-																 glm::vec3(0.0f, 0.0f, 0.0f),
+		auto camera = m_renderManager.CreateCamera(glm::vec3(0.0f, 0.0f, 30.f),
+																 glm::vec3(0.0f, 0.0f, -1.0f),
 																 glm::vec3(0.0f, 1.0f, 0.0f));
 		camera->setClearColor(glm::vec3(1.f, 1.f, 0.f));
 		camera->setProjection(glm::perspective(45.0f, 800.0f / 600.0f, 0.1f, 100.0f));
@@ -56,11 +59,39 @@ void ENGI::GameEngine::EndFrame()
 {
 	m_windowsManager.endDrawing();
 }
+//void ENGI::GameEngine::setCameraPosition()
+//{
+//	m_renderManager.getCamera()->setPosition();
+//}
 /////////////
 //INPUT
-bool ENGI::GameEngine::IsScapeDown() const
+//bool ENGI::GameEngine::IsScapeDown() const
+//{
+//	return glfwGetKey(GetWindow(), GLFW_KEY_ESCAPE);
+//}
+//////////////////////////////////////////
+// INPUTS
+// Check if a key has been pressed once
+bool ENGI::GameEngine::IsKeyPressed(int key) {
+	return m_inputManager.isKeyPressed(key);
+}
+// Check if a key has been pressed once
+bool ENGI::GameEngine::IsKeyReleased(int key) {
+	return m_inputManager.isKeyReleased(key);
+}
+
+bool ENGI::GameEngine::IsKeyDown(int key)
 {
-	return glfwGetKey(GetWindow(), GLFW_KEY_ESCAPE);
+	return m_inputManager.isKeyDown(key);
+}
+
+bool ENGI::GameEngine::IsMouseButtomPressed(int buttom)
+{
+	return m_inputManager.isMouseButtonPressed(buttom);
+}
+bool ENGI::GameEngine::IsMouseButtomDown(int buttom)
+{
+	return m_inputManager.isMouseButtonDown(buttom);
 }
 
 /////////////
@@ -70,6 +101,10 @@ void ENGI::GameEngine::beginFrame()
 	m_renderManager.drawCamera();
 }
 
+Camera* ENGI::GameEngine::getCamera()
+{
+	return m_renderManager.getCamera();
+}
 
 
 /////////////

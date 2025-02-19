@@ -138,6 +138,12 @@
     <ClInclude Include="..\src\renderer\resources\Resource.hpp">
       <Filter>Source Files\src\Renderer\resources</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\renderer\managers\InputManager.hpp">
+      <Filter>Source Files\src\Renderer\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ECS\systems\InputSystem.hpp">
+      <Filter>Source Files\src\ECS\systems</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\lib\glew\glew.c">
@@ -193,6 +199,12 @@
     </ClCompile>
     <ClCompile Include="..\src\renderer\resources\Texture.cpp">
       <Filter>Source Files\src\Renderer\resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\renderer\managers\InputManager.cpp">
+      <Filter>Source Files\src\Renderer\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ECS\systems\InputSystem.cpp">
+      <Filter>Source Files\src\ECS\systems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

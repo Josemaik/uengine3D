@@ -13,10 +13,11 @@
 
 
 
-#include "managers/GameEngine.hpp"
+//#include "managers/GameEngine.hpp"
 #include "managers/EntityFactory.hpp"
 #include "ECS/types.hpp"
 #include "ECS/systems/RenderSystem.hpp"
+#include "ECS/systems/InputSystem.hpp"
 
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 600
@@ -29,6 +30,7 @@ int main() {
 	EntityFactory ef{};
 	//systems
 	RenderSystem rsys{};
+	InputSystem insys{};
 
 	//Create Triangles
 	//ef.CreateTriangles(em);
@@ -41,7 +43,7 @@ int main() {
 	
 	// main loop
 	double lastTime = engine.GetTime();
-	while (!engine.windowShouldClose() && !engine.IsScapeDown()) {
+	while (!engine.windowShouldClose() && !engine.IsKeyDown(GLFW_KEY_ESCAPE)) {
 		// get delta time
 		float deltaTime = static_cast<float>(engine.GetTime() - lastTime);
 		lastTime = engine.GetTime();
@@ -49,6 +51,7 @@ int main() {
 		//Begin Frame
 		engine.beginFrame();
 		//Update render system
+		insys.update(engine);
 		rsys.update(em, deltaTime);
 		//End frame
 		engine.EndFrame();

@@ -149,6 +149,7 @@
     <ClInclude Include="..\src\ECS\components\RenderComponent.hpp" />
     <ClInclude Include="..\src\ECS\Entitymanager.hpp" />
     <ClInclude Include="..\src\ECS\meta_program.hpp" />
+    <ClInclude Include="..\src\ECS\systems\InputSystem.hpp" />
     <ClInclude Include="..\src\ECS\systems\RenderSystem.hpp" />
     <ClInclude Include="..\src\ECS\types.hpp" />
     <ClInclude Include="..\src\managers\EntityFactory.hpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="..\src\renderer\components\Camera.hpp" />
     <ClInclude Include="..\src\renderer\components\Entity.hpp" />
     <ClInclude Include="..\src\renderer\components\Model.hpp" />
+    <ClInclude Include="..\src\renderer\managers\InputManager.hpp" />
     <ClInclude Include="..\src\renderer\managers\RenderManager.hpp" />
     <ClInclude Include="..\src\renderer\managers\ResourceManager.hpp" />
     <ClInclude Include="..\src\renderer\managers\WindowsManager.hpp" />
@@ -171,6 +173,7 @@
   <ItemGroup>
     <ClCompile Include="..\lib\glad\glad.c" />
     <ClCompile Include="..\lib\glew\glew.c" />
+    <ClCompile Include="..\src\ECS\systems\InputSystem.cpp" />
     <ClCompile Include="..\src\ECS\systems\RenderSystem.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\managers\EntityFactory.cpp" />
@@ -178,6 +181,7 @@
     <ClCompile Include="..\src\renderer\components\Camera.cpp" />
     <ClCompile Include="..\src\renderer\components\Entity.cpp" />
     <ClCompile Include="..\src\renderer\components\Model.cpp" />
+    <ClCompile Include="..\src\renderer\managers\InputManager.cpp" />
     <ClCompile Include="..\src\renderer\managers\RenderManager.cpp" />
     <ClCompile Include="..\src\renderer\managers\ResourceManager.cpp" />
     <ClCompile Include="..\src\renderer\managers\WindowsManager.cpp" />

@@ -30,7 +30,7 @@ void EntityFactory::CreateBoxStack(EntityManager& em)
 	auto& boxstack{ em.createEntity() };
 	em.addTag<boxStackTag>(boxstack);
 	auto& r = em.addComponent<RenderComponent>(boxstack);
-	r.position = glm::vec3(5.f, 0.f, 0.f);
+	r.position = glm::vec3(0.f, -20.f, 0.f);
 	r.scale = glm::vec3(4.f, 4.f, 4.f);
 }
 
@@ -40,6 +40,6 @@ void EntityFactory::CreateGunSlinger(EntityManager& em)
 	auto& gunslinger{ em.createEntity() };
 	em.addTag<gunslingerTag>(gunslinger);
 	auto& r = em.addComponent<RenderComponent>(gunslinger);
-	r.position = glm::vec3(-10.f, 0.f, 0.f);
+	r.position = glm::vec3(0.f, 0.f, 0.f);
 	r.scale = glm::vec3(0.5f, 0.5f, 0.5f);
 }

@@ -13,6 +13,16 @@ Camera* RenderManager::CreateCamera(glm::vec3 _position, glm::vec3 _origin, glm:
 	return nullptr;
 }
 
+//void RenderManager::UpdateCamera()
+//{
+//	
+//}
+
+//void RenderManager::SetPositionCamera(glm::vec3 _position)
+//{
+//	m_camera->setPosition(_position);
+//}
+
 void RenderManager::LoadShader()
 {
 	auto& rmn = ResourceManager::getInstance();

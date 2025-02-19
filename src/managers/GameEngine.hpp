@@ -6,6 +6,7 @@
 #include "../renderer/managers/WindowsManager.hpp"
 #include "../renderer/managers/RenderManager.hpp"
 #include "../renderer/managers/ResourceManager.hpp"
+#include "../renderer/managers/InputManager.hpp"
 
 namespace ENGI
 {
@@ -26,11 +27,18 @@ namespace ENGI
 		//void UpdateViewport() const;
 		
 		//Input
-		bool IsScapeDown() const;
+		//bool IsScapeDown() const;
+		bool IsKeyPressed(int key);
+		bool IsKeyReleased(int key);
+		bool IsKeyDown(int key);
+		bool IsMouseButtomPressed(int buttom);
+		bool IsMouseButtomDown(int buttom);
 
 		//Renderer
 		void beginFrame();
 		void EndFrame();
+		Camera* getCamera();
+		//void setCameraPosition();
 		//Resource
 		Texture* LoadTexture2D(const char* filepath);
 		Mesh* LoadModel(const char* filepath);
@@ -42,6 +50,7 @@ namespace ENGI
 		WindowsManager& m_windowsManager = WindowsManager::getInstance();
 		RenderManager& m_renderManager = RenderManager::getInstance();
 		ResourceManager& m_resourceManager = ResourceManager::getInstance();
+		InputManager& m_inputManager = InputManager::getInstance();
 	};
 #endif // !GAME_ENGINE
 }

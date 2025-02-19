@@ -42,8 +42,8 @@ void Camera::prepare()
   State::projectionMatrix = cameraProjection;
 
   State::viewMatrix = glm::lookAt(
-    position, //eye
-    origin, //center
+    getPosition(), //eye
+    getPosition() + origin, //center
     up); //up
 
   glViewport(viewport.x,viewport.y,viewport.z,viewport.w);

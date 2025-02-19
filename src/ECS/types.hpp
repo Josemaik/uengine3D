@@ -8,6 +8,7 @@
 //#include "sngtn/PlayerInfo.hpp"
 //Entity Manager
 #include "Entitymanager.hpp"
+#include "../managers/GameEngine.hpp"
 //#include "../managers/GameEngine.hpp"
 //Metaprogramación
 #include "meta_program.hpp"
