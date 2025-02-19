@@ -5,6 +5,6 @@
 class InputSystem
 {
 public:
-	void update(GameEngine& ge);
+	void update(GameEngine& ge,float DeltaTime);
 };
 

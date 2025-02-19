@@ -51,7 +51,7 @@ int main() {
 		//Begin Frame
 		engine.beginFrame();
 		//Update render system
-		insys.update(engine);
+		insys.update(engine, deltaTime);
 		rsys.update(em, deltaTime);
 		//End frame
 		engine.EndFrame();

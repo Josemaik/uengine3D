@@ -32,6 +32,21 @@ void Camera::setClearColor(const glm::vec3& color)
   clearColor = color;
 }
 
+const glm::vec3& Camera::getOrigin() const
+{
+  return origin;
+}
+
+const glm::vec3& Camera::getUp() const
+{
+  return up;
+}
+
+const float Camera::getSpeed() const
+{
+  return speed;
+}
+
 void Camera::draw()
 {
   prepare();

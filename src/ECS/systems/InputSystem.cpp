@@ -6,44 +6,31 @@
 
 #include "../../renderer/resources/State.hpp"
 
-void InputSystem::update(GameEngine& ge)
+void InputSystem::update(GameEngine& ge, float DeltaTime)
 {
-	const float cameraspeed = 0.1f;
-	//Update Camera
+	//setup variables
+	auto* camera = ge.getCamera();
+	float cameraspeed = camera->getSpeed() * DeltaTime;
+	auto pos = camera->getPosition();
+	auto OriginVec = camera->getOrigin();
+	auto UpVec = camera->getUp();
+	//Update Camera position
 	if (ge.IsKeyDown(GLFW_KEY_UP))
-	{
-		auto* camera = ge.getCamera();
-		auto pos = camera->getPosition();
-		//pos.x--;
-		pos += cameraspeed * glm::vec3(0.f, 0.f, -1.f);
-		ge.getCamera()->setPosition(pos);
-		//glm:: State::viewMatrix
-		//State::viewMatrix = glm::translate(State::viewMatrix, glm::vec3(-1.f, 0.f, 0.f));
+	{	
+		pos += cameraspeed * OriginVec;
 	}
 	if (ge.IsKeyDown(GLFW_KEY_DOWN))
 	{
-		//State::viewMatrix = glm::translate(State::viewMatrix, glm::vec3(1.f, 0.f, 0.f));
-		auto* camera = ge.getCamera();
-		auto pos = camera->getPosition();
-		//pos.x++;
-		pos -= cameraspeed * glm::vec3(0.f, 0.f, -1.f);
-		ge.getCamera()->setPosition(pos);
-		//glm::tra
+		pos -= cameraspeed * OriginVec;
 	}
 	if (ge.IsKeyDown(GLFW_KEY_LEFT))
 	{
-		auto* camera = ge.getCamera();
-		auto pos = camera->getPosition();
-		//pos.y--;
-		pos -= glm::normalize(glm::cross(glm::vec3(0.f, 0.f, -1.f), glm::vec3(0.f, 1.f, 0.f))) * cameraspeed;
-		ge.getCamera()->setPosition(pos);
+		pos -= glm::normalize(glm::cross(OriginVec, UpVec)) * cameraspeed;
 	}
 	if (ge.IsKeyDown(GLFW_KEY_RIGHT))
 	{
-		auto* camera = ge.getCamera();
-		auto pos = camera->getPosition();
-		//pos.y++;
-		pos += glm::normalize(glm::cross(glm::vec3(0.f, 0.f, -1.f), glm::vec3(0.f, 1.f, 0.f))) * cameraspeed;
-		ge.getCamera()->setPosition(pos);
+		pos += glm::normalize(glm::cross(OriginVec, UpVec)) * cameraspeed;
 	}
+	//set position
+	camera->setPosition(pos);
 }

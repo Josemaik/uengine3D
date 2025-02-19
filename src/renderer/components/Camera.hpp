@@ -19,6 +19,9 @@ public:
 	void setViewport(const glm::ivec4& vp);
 	const glm::vec3& getClearColor() const;
 	void setClearColor(const glm::vec3& color);
+	const glm::vec3& getOrigin() const;
+	const glm::vec3& getUp() const;
+	const float getSpeed() const;
 	void draw() override;
 	void prepare();
 
@@ -28,7 +31,7 @@ private:
 	glm::vec3 eye{ 30.f,0.f,0.f };
 	glm::vec3 origin{ 0.0f, 0.0f, -1.0f };
 	glm::vec3 up{ 0.0f, 1.0f, 0.0f };
-
+	float speed{ 10.f };
 	glm::ivec4 viewport{ 0.f, 0.f, 0.f, 0.f };
 
 	glm::vec3 clearColor{};
