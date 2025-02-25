@@ -156,6 +156,7 @@
     <ClInclude Include="..\src\managers\GameEngine.hpp" />
     <ClInclude Include="..\src\renderer\components\Camera.hpp" />
     <ClInclude Include="..\src\renderer\components\Entity.hpp" />
+    <ClInclude Include="..\src\renderer\components\Light.hpp" />
     <ClInclude Include="..\src\renderer\components\Model.hpp" />
     <ClInclude Include="..\src\renderer\managers\InputManager.hpp" />
     <ClInclude Include="..\src\renderer\managers\RenderManager.hpp" />
@@ -180,6 +181,7 @@
     <ClCompile Include="..\src\managers\GameEngine.cpp" />
     <ClCompile Include="..\src\renderer\components\Camera.cpp" />
     <ClCompile Include="..\src\renderer\components\Entity.cpp" />
+    <ClCompile Include="..\src\renderer\components\Light.cpp" />
     <ClCompile Include="..\src\renderer\components\Model.cpp" />
     <ClCompile Include="..\src\renderer\managers\InputManager.cpp" />
     <ClCompile Include="..\src\renderer\managers\RenderManager.cpp" />
@@ -194,7 +196,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\data\fragment.glsl" />
+    <None Include="..\data\fragment_light.glsl" />
     <None Include="..\data\vertex.glsl" />
+    <None Include="..\data\vertex_light.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

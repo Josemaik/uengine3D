@@ -39,9 +39,13 @@ void Material::prepare() const
 	const std::shared_ptr<Shader>& currentShader = getShader();
 	currentShader->use();
 	//Write uniform
-	glm::mat4 mvp = State::projectionMatrix * State::viewMatrix * State::modelMatrix;
-	GLint uniMVP = glGetUniformLocation(currentShader->getID(), "mvp");
-	currentShader->setMatrix(uniMVP, mvp);
+	//glm::mat4 mvp = State::projectionMatrix * State::viewMatrix * State::modelMatrix;
+	GLint locmodel = glGetUniformLocation(currentShader->getID(), "model");
+	currentShader->setMatrix(locmodel, State::modelMatrix);
+	GLint locview = glGetUniformLocation(currentShader->getID(), "view");
+	currentShader->setMatrix(locview, State::viewMatrix);
+	GLint locproj = glGetUniformLocation(currentShader->getID(), "projection");
+	currentShader->setMatrix(locproj, State::projectionMatrix);
 	//Bindear Textura
 	if (m_texture)
 	{

@@ -93,6 +93,7 @@ void Shader::setupAttribs() const
   GLint location_vpos = glGetAttribLocation(idProgram, "vpos");
   GLint location_vcolor = glGetAttribLocation(idProgram, "vcolor");
   GLint location_vtex = glGetAttribLocation(idProgram, "vtex");
+  GLint location_vnormal = glGetAttribLocation(idProgram, "vnormal");
 
   if (location_vpos != -1)
   {
@@ -122,6 +123,12 @@ void Shader::setupAttribs() const
     const glm::mat4 matrix = glm::mat4();
     setMatrix(location_mvp, matrix);
   }*/
+  if (location_vnormal != -1)
+  {
+    glEnableVertexAttribArray(location_vnormal);
+    glVertexAttribPointer(location_vnormal, 3, GL_FLOAT, false, sizeof(Vertex),
+      reinterpret_cast<const void*>(offsetof(Vertex, normal)));
+  }
 }
 
 int Shader::getLocation(const char* name) const

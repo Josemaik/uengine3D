@@ -124,6 +124,10 @@ void Mesh::setup()
 					vertexAux.textureCord.x = 0.0f;
 					vertexAux.textureCord.y = 0.0f;
 				}
+				//Normals
+				vertexAux.normal.x = attrib.normals[3 * idx.normal_index + 0];
+				vertexAux.normal.y = attrib.normals[3 * idx.normal_index + 1];
+				vertexAux.normal.z = attrib.normals[3 * idx.normal_index + 2];
 				//extract color
 				vertexAux.color.r = 1.f;
 				vertexAux.color.g = 1.f;

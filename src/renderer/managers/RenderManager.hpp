@@ -21,6 +21,8 @@ public:
 	Camera* getCamera() const { return m_camera; }
 	void drawCamera() const { m_camera->draw(); }
 
+	const glm::vec3& getAmbient() const;
+	void setAmbient(const glm::vec3& ambient);
 	//void SetPositionCamera(glm::vec3 _position);
 	//void UpdateCamera();
 	//Shaders

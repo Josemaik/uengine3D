@@ -144,6 +144,9 @@
     <ClInclude Include="..\src\ECS\systems\InputSystem.hpp">
       <Filter>Source Files\src\ECS\systems</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\renderer\components\Light.hpp">
+      <Filter>Source Files\src\Renderer\components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\lib\glew\glew.c">
@@ -206,12 +209,21 @@
     <ClCompile Include="..\src\ECS\systems\InputSystem.cpp">
       <Filter>Source Files\src\ECS\systems</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\renderer\components\Light.cpp">
+      <Filter>Source Files\src\Renderer\components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\data\fragment.glsl">
       <Filter>Shaders</Filter>
     </None>
     <None Include="..\data\vertex.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\data\vertex_light.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\data\fragment_light.glsl">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

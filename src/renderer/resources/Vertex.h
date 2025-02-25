@@ -16,5 +16,7 @@ struct Vertex
 	glm::vec4 color;
 	//Coordenadasd de textura
 	glm::vec2 textureCord;
+	//Normal
+	glm::vec3 normal;
 };
 
